@@ -1,0 +1,3 @@
+0 letter.application
+1 letter.complaint
+2 letter.resignation

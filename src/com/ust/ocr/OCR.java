@@ -12,6 +12,15 @@ import java.io.File;
  * A class that is used for OCR
  */
 public class OCR {
+
+    public static ITesseract instance = new Tesseract();
+
+
+    public OCR(){
+        instance.setLanguage("eng");
+    }
+
+
     /**
      * method that uses OCR to return text of the given image
      * @param file any image
@@ -19,26 +28,17 @@ public class OCR {
      */
     public static String getOCRText(File file){
         File imageFile = file;
-        ITesseract instance = new Tesseract();
-        // JNA Interface Mapping
-        //ITesseract instance = new Tesseract1(); // JNA Direct Mapping
-
-        //File tessDataFolder = LoadLibs.extractTessResources("tessdata"); // Maven build bundles English data
-        //instance.setDatapath("tessdata");
-
-        instance.setLanguage("eng");
 
         try {
+            System.out.println("CREATING OCR TEXTFILE FOR:"+file.getName());
             String result = instance.doOCR(imageFile);
-            System.out.println(result);
+            //System.out.println(result);
             return result;
         } catch (TesseractException e) {
+            System.out.println("FILE:"+file.getName());
             System.err.println(e.getMessage());
             return "";
         }
 
     }
-
-
-
 }
