@@ -15,10 +15,7 @@ public class OCR {
 
     public static ITesseract instance = new Tesseract();
 
-
-    public OCR(){
-        instance.setLanguage("eng");
-    }
+    
 
 
     /**
@@ -28,7 +25,7 @@ public class OCR {
      */
     public static String getOCRText(File file){
         File imageFile = file;
-
+        instance.setLanguage("eng");
         try {
             System.out.println("CREATING OCR TEXTFILE FOR:"+file.getName());
             String result = instance.doOCR(imageFile);
