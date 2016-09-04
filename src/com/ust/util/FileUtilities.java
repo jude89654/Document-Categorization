@@ -2,9 +2,7 @@ package com.ust.util;
 
 import com.ust.ocr.OCR;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,6 +57,7 @@ public class FileUtilities {
 
     private static void copyFile(File source, File target) throws IOException {
 
+        FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
         String content = OCR.getOCRText(source);
         FileWriter fileWriter = new FileWriter(target,false);
         fileWriter.append(content);
@@ -66,4 +65,22 @@ public class FileUtilities {
         FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
     }
 
+
+    public static void copyDevLabelFile(File SourceDebFile, File destinationDebFile){
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(SourceDebFile));
+            FileWriter fileWriter = new FileWriter(destinationDebFile);
+            String line;
+            while((line=bufferedReader.readLine())!=null){
+                String[] content = line.split(" ");
+                fileWriter.append(content[0]).append(".txt ").append(content[1]).append("\n");
+            }
+            fileWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }
