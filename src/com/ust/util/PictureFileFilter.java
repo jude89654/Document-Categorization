@@ -1,11 +1,12 @@
 package com.ust.util;
 
 import java.io.File;
+import java.io.FilenameFilter;
 
 /**
  * Created by jude8 on 9/2/2016.
  */
-public class PictureFileFilter implements java.io.FileFilter{
+public class PictureFileFilter implements FilenameFilter{
 
     /**
      * Implemented filter for the train method that accepts jpeg, jpg and png files
@@ -13,11 +14,9 @@ public class PictureFileFilter implements java.io.FileFilter{
      * @return a boolean if it ends in a correct file type
      */
     @Override
-    public boolean accept(File pathname) {
-        return pathname.getName().toLowerCase().endsWith(".jpg")
-                |pathname.getName().toLowerCase().endsWith(".png")|
-                pathname.getName().toLowerCase().endsWith(".jpeg")
-                |pathname.getName().toLowerCase().endsWith(".");
+    public boolean accept(File dir, String pathname) {
+         return pathname.toLowerCase().endsWith(".jpg")
+                |pathname.toLowerCase().endsWith(".png")|
+                pathname.toLowerCase().endsWith(".jpeg");
     }
-
 }
