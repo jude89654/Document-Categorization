@@ -3,6 +3,7 @@ package com.ust.SVM;
 import java.io.File;
 import java.io.IOException;
 
+import com.ust.main.Main;
 import liblinear.InvalidInputDataException;
 import liblinear.Linear;
 import liblinear.Model;
@@ -20,10 +21,10 @@ public class Train
 	 * @throws IOException
 	 * @throws InvalidInputDataException
 	 */
-	public static void train() throws IOException, InvalidInputDataException
+	public static void startTraining() throws IOException, InvalidInputDataException
 	{
 
-	    String pathToClassName="tempFolder/class_name.txt";
+	    String pathToClassName= "tempfolder/class_name.txt";
         String pathToTrainingFolder = "tempFolder/train";
 
 		long start = System.currentTimeMillis();
@@ -31,7 +32,7 @@ public class Train
 		classifier.buildTrainData( pathToClassName, pathToTrainingFolder);
 
 		long end = System.currentTimeMillis();
-		System.out.println( "Time taken to build train file = " + (end - start) + " msec" );
+		System.out.println( "Time taken to build startTraining file = " + (end - start) + " msec" );
 		Linear.disableDebugOutput();
 		start = System.currentTimeMillis();
 		File file = new File( classifier.OUTPUT_TRAIN_FILE );
@@ -47,7 +48,7 @@ public class Train
 		model.save( modelFile );
 		System.out.println( "Finished writing model file - " + classifier.OUTPUT_MODEL_FILE );
 		end = System.currentTimeMillis();
-		System.out.println( "Time taken to train SVM = " + (end - start) + " msec" );
+		System.out.println( "Time taken to startTraining SVM = " + (end - start) + " msec" );
 	}
 
 }

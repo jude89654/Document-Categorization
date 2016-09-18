@@ -57,12 +57,18 @@ public class FileUtilities {
 
     private static void copyFile(File source, File target) throws IOException {
 
-        FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
-        String content = OCR.getOCRText(source);
-        FileWriter fileWriter = new FileWriter(target,false);
-        fileWriter.append(content);
-        fileWriter.close();
-        FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
+        if(source.getName().toLowerCase().endsWith(".png")
+                |source.getName().toLowerCase().endsWith(".jpeg")
+                |source.getName().toLowerCase().endsWith(".jpg")) {
+
+            String content = OCR.getOCRText(source);
+            FileWriter fileWriter = new FileWriter(target, false);
+            fileWriter.append(content);
+            fileWriter.close();
+            FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
+
+        }
+        //FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
     }
 
 

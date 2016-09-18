@@ -24,16 +24,15 @@ public class OCR {
      * @return an OCR text of the image
      */
     public static String getOCRText(File file){
-        File imageFile = file;
         instance.setLanguage("eng");
         try {
             System.out.println("CREATING OCR TEXTFILE FOR:"+file.getName());
-            String result = instance.doOCR(imageFile);
             //System.out.println(result);
-            return result;
+            return instance.doOCR(file);
         } catch (TesseractException e) {
-            System.out.println("FILE:"+file.getName());
-            System.err.println(e.getMessage());
+            System.out.println("ERROR ON FILE:"+file.getName());
+            e.printStackTrace();
+            //System.err.println(e.getMessage());
             return "";
         }
 
