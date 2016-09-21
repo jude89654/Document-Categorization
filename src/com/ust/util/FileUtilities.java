@@ -1,6 +1,7 @@
 package com.ust.util;
 
 import com.ust.ocr.OCR;
+import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.util.regex.Matcher;
@@ -61,14 +62,17 @@ public class FileUtilities {
                 |source.getName().toLowerCase().endsWith(".jpeg")
                 |source.getName().toLowerCase().endsWith(".jpg")) {
 
+            FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
             String content = OCR.getOCRText(source);
             FileWriter fileWriter = new FileWriter(target, false);
             fileWriter.append(content);
             fileWriter.close();
             FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
 
+        }else if(source.getName().toLowerCase().endsWith(".txt")){
+            FileUtils.copyFile(source,target);
         }
-        //FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
+        FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
     }
 
 

@@ -1,4 +1,5 @@
-package com.ust.SVM;/*
+package com.ust.SVM;
+/*
  * File: com.ust.SVM.Stemmer.java
  * 
  * Copyright 2010 - The Cytoscape Consortium (www.cytoscape.org)
