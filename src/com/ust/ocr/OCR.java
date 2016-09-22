@@ -30,8 +30,8 @@ public class OCR {
             //System.out.println(result);
             return instance.doOCR(file);
         } catch (TesseractException e) {
-            System.out.println("ERROR ON FILE:"+file.getName());
-            e.printStackTrace();
+            System.out.println("ERROR ON CREATING OCR ON FILE:"+file.getName());
+           // e.printStackTrace();
             //System.err.println(e.getMessage());
             return "";
         }

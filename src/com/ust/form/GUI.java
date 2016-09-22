@@ -93,5 +93,9 @@ public class GUI extends JFrame {
             return "";
         }
     }
+
+    public static void logMessage(String message){
+       // logsTextArea.append(message+"\n");
+    }
 }
 

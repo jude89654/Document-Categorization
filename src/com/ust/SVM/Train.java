@@ -24,18 +24,18 @@ public class Train
 	public static void startTraining() throws IOException, InvalidInputDataException
 	{
 
-	    String pathToClassName= "tempfolder/class_name.txt";
-        String pathToTrainingFolder = "tempFolder/train";
+	    String pathToClassName= Main.tempFolderPath +File.separator+Main.classNameFile;
+        String pathToTrainingFolder = Main.tempFolderPath +File.separator+Main.trainingFolderName;
 
 		long start = System.currentTimeMillis();
-		Classifier classifier = new Classifier();
-		classifier.buildTrainData( pathToClassName, pathToTrainingFolder);
+		FirstLevelClassifier firstLevelClassifier = new FirstLevelClassifier();
+		firstLevelClassifier.buildTrainData( pathToClassName, pathToTrainingFolder);
 
 		long end = System.currentTimeMillis();
 		System.out.println( "Time taken to build startTraining file = " + (end - start) + " msec" );
 		Linear.disableDebugOutput();
 		start = System.currentTimeMillis();
-		File file = new File( classifier.OUTPUT_TRAIN_FILE );
+		File file = new File( firstLevelClassifier.OUTPUT_TRAIN_FILE );
 		Problem prob = Problem.readFromFile( file, 1 );
 
 		SolverType solver = SolverType.L2R_L2LOSS_SVC; // -s 0
@@ -44,9 +44,9 @@ public class Train
 
 		Parameter parameter = new Parameter( solver, C, eps );
 		Model model = Linear.train( prob, parameter );
-		File modelFile = new File( classifier.OUTPUT_MODEL_FILE );
+		File modelFile = new File( firstLevelClassifier.OUTPUT_MODEL_FILE );
 		model.save( modelFile );
-		System.out.println( "Finished writing model file - " + classifier.OUTPUT_MODEL_FILE );
+		System.out.println( "Finished writing model file - " + firstLevelClassifier.OUTPUT_MODEL_FILE );
 		end = System.currentTimeMillis();
 		System.out.println( "Time taken to startTraining SVM = " + (end - start) + " msec" );
 	}

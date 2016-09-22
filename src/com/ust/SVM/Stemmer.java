@@ -39,7 +39,7 @@ package com.ust.SVM;
  * Similarly,
  * 
  * Bug 2 (reported by Steve Dyrdahl 22/2/00) fixed as marked below. 'ion' by itself leaves j = -1 in
- * the StartTesting for 'ion' in step 5, and b[j] is then outside the bounds of b.
+ * the StartFirstLevelTesting for 'ion' in step 5, and b[j] is then outside the bounds of b.
  * 
  * Release 3
  * 

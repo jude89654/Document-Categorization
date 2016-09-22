@@ -460,7 +460,7 @@ public class Linear {
 
 
 
-            System.out.println("SCORES:" + Arrays.toString(dec_values));
+            //System.out.println("SCORES:" + Arrays.toString(dec_values));
 
             //CHECK THE SCORES OF EACH CATEGORY
             for (int i = 1; i < model.nr_class; i++) {
@@ -472,7 +472,7 @@ public class Linear {
 
             //System.out.println(model.label.length);
             if(dec_values[dec_max_idx]<0) return model.label.length;
-            //System.out.println(model.label[dec_max_idx]);
+            System.out.println(model.label[dec_max_idx]);
 
             return model.label[dec_max_idx];
         }

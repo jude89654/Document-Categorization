@@ -1,0 +1,43 @@
+W“ , .1.
+33,. an“! UNIVERSITY OF SANTO TOMAS a- - as:
+2 2 Institute of Information and Computing Sciences L“,
+that ‘1; Department of Computer Science .2?
+INTERNSHIP WEEKLY ACTIVITY REPORT i
+Intern’s Name: Valera, Juan Carlos V. This week “From Date”: 07/ 04 /2016 s;
+Public-Private Partnership F;
+Company: Center This week “To Date”: 07/ 08/ 2016 F
+Management Information .
+Department Deployed Systems Division Hours worked this week 30 hours I
+Supervisor’s Name: Mr. Mark Anthony D. Cruzat Total hours completed g2; out of 250
+DATE / TIME . _ Hours Status / L
+Description Spent % completed |
+Date: 07/ 04 / 2016 1. Discussion of website policy 100% ;,
+Time In: 8:00 AM 2. Continued studying PHP programming language 100% l
+Time OUU 5100 PM 3. Explanation of existing library system 100%
+Hours Worked: 8 4. Started on login functionality (Inventory) .
+Date: 07/ 05 / 2016 1. Finished login functionality (inventory) 100%
+Time In: 8:00 AM 2. Researched on a barcode function to be used 100%
+Time Out: 5100 PM 3. Modified barcode function 100%
+Hours Worked: 8 4. Integrated the barcode function in the system
+Date: 07/ O7 / 2016 1. Continued front—end on the inventory system ,
+Time In: 8:00 AM 2. Worked on features wanted by the supervisor
+Time OUt! 6300 PM 3. Presented current status of the system ‘
+Hours Werked= 9 __— .
+Date: 07/ 08 / 2016 1. Research on how to layout barcode for printing
+Time In: 8:00 AM 2. Worked on the barcode preview
+Time Out: 2:00 PM —-_ .
+Hours Werked= 5 _-— 1
+Date: / i 20 ——_ 1
+Time ”‘2 ___ 1
+Time Out: ——_ %
+Hours Worked= —-_ 4
+Date: / I 20 —-— :
+Time in: ——_ ,
+Time Out: ——— 1
+Hours Worked= __—
+Prepared by: Conforme: l
+.v’ I 7
+Intern Signature 31p ‘ or’s ignature ‘
+Date: 07 / 11 /2016 ae: 07/ 11 /2016
+UST:A022-01-F015
+

@@ -60,10 +60,14 @@ public class Predict {
         while ((line = testFileReader.readLine()) != null) {
             List<Feature> x = new ArrayList<Feature>();
             StringTokenizer st = new StringTokenizer(line, " \t\n");
+           // System.out.println(line);
+
             double target_label;
             try {
                 String label = st.nextToken();
+               // System.out.println(label);
                 target_label = Linear.atof(label);
+                //System.out.println(target_label);
             } catch (NoSuchElementException e) {
                 throw new RuntimeException("Wrong input format at line " + (total + 1), e);
             }
@@ -108,28 +112,29 @@ public class Predict {
             } else {
                 predict_label = Linear.predict(model, nodes);
                 Linear.printf(out, "%g\n", predict_label);
-            }
+           }
 
-            if (predict_label == target_label) {
-                ++correct;
-            }
+
+          /*if (predict_label == target_label) {
+       ++correct;
+          }
 
             error += (predict_label - target_label) * (predict_label - target_label);
             sump += predict_label;
             sumt += target_label;
-            sumpp += predict_label * predict_label;
+           sumpp += predict_label * predict_label;
             sumtt += target_label * target_label;
             sumpt += predict_label * target_label;
-            ++total;
-        }
+            ++total;*/
 
+ }
         if (model.solverType.isSupportVectorRegression()) //
         {
             Linear.info("Mean squared error = %g (regression)%n", error / total);
             Linear.info("Squared correlation coefficient = %g (regression)%n", //
                     ((total * sumpt - sump * sumt) * (total * sumpt - sump * sumt)) / ((total * sumpp - sump * sump) * (total * sumtt - sumt * sumt)));
         } else {
-            Linear.info("Accuracy = %g%% (%d/%d)%n", (double) correct / total * 100, correct, total);
+           //Linear.info("Accuracy = %g%% (%d/%d)%n", (double) correct / total * 100, correct, total);
         }
     }
 

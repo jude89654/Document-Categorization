@@ -1,0 +1,45 @@
+V
+Wee-".3 UNIVERSITY OF SANTO TOMAS_ ”jg”
+g $3 3 Institute of Information and Computing Solences t .3?
+WEI-5i Department of Computer Science
+INTERNSHIP WEEKLY ACTIVITY REPORT
+Intern’s Name: Briones, Ann-Gayle Nicole This week “From Date”: M
+Company: Accenture This week “To Date”: rm 2016
+Department Deployed ITW Support Team HOUFS worked this week ”fig—x
+Supervisor’s Name: Benedict G. Chan Total hours completed 120 out of 250
+DATE / TIME Descri tion Hours Stag/:15 I
+p Spent completed
+Date: 7/11/2016 1. Studied the basics of SAPUI5: Data types, 2 hrs and 100%.
+Time In: 8:00 Expression Bindings 30 mins with ”“5
+Time Out: 5:00 tomc om”
+Hours Worked: 8 2. Studied the basics of SAPUI5: Custom formatters 2 hrs and 100%.
+and Filters 30 mins (W‘th ”“5
+topic only)
+3. Doing some practice codes for SAPUI5 (different 2 hrs 70%
+kinds of functions) (With this
+topic only)
+4. Meeting with the head of the project about the 100%
+task
+Date: 7/12/2016 1. Studied the basics of SAPUI5: Sorting and 2hrs 100%
+Time In: 8:00 Grouping (with this
+Time Out: 5:00 tOPIC 0013/)
+Hours Worked: 8 2. Another set of Exercises for SAPUI5
+3. Doing some practice codes for SAPUI5 (general)
+- 4. Fiori and KPI overview
+Date: 7/13/2016 1. Continuation of the Exercises for SAPUI5
+Time In: 8:00 2. Fiori and KPI overview
+Time Out: 5:00 3. Doing some practice codes for SAPUI5 (general)
+Hours Worked: 8 ———
+Date: 7/14/2016 1. Fiori and KPI overview
+Time In: 8:00 2. Continuation of the Exercises for SAPUI5 100%
+Time OUti 5100 3. Studied the basics of SAPUI5: Remote OData, 2 hrs 100%
+Hours Worked: 8 Mock Service Config
+. . t ' l
+4. Studied the ba51cs of SAPUI5: Unit Test, 2 hrs 0:168; y)
+Date: 7/15/2016 1. Fiori and KPI overview 1007
+' . . 0
+‘ Time In: 8:00 2. Studied the ba51cs of SAPUI5: Routing and 2 hrs and 100%
+Time Out: 5:00 Navigations, Routing with Parameters 30 mins
+Hours Worked: 8
+}‘ (a; . . ' ‘» " USTzAOZZ-Ol-F015
+

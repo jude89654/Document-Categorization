@@ -1,0 +1,42 @@
+,‘m‘x UNIVERSITY OF SANTO TOMAS at!“ —~:
+5 3 Institute of Information and Computing Sciences  
+, ,ka Department of Computer Science t '33
+.. «4"
+INTERNSHIP WEEKLY ACTIVITY REPORT
+Intern's Name: Valera, Juan Carlos V. This week “From Date”: 07/ 25 /2016
+Public-Private Partnership
+Company: Center This week “To Date”: 07/ 29/ 2016
+Management Information
+Department Deployed Systems Division Hours worked this week 45 hours
+Supervisor’s Name: Mr. Mark Anthony D. Cruzat Total hours completed 191 out of 250
+DATE / TIME D , , Hours Status /
+escrIptIon Spent % completed
+Date: 07/ 25 / 2016 1. Debugging result sets 100%
+Time In: 8:00 AM 2. Adding validation checks
+Time OUR 6300 PM 3. Finishing “employee page” setup 100%
+Hours Worked: 9 4. Fixing the “admin page”
+Date: 07/ 26 / 2016 1. Continued the setup of the “admin page”
+Time In: 8:00 AM 2. Added the new function to the system
+Time OUti 6300 PM 3. Fixing the session tracking capabilities
+Hours Workoo= 9 __-
+Date= 07/ 27 / 2016
+Time In: 8:00 AM 2. Started on the “project manager page”
+Time Out: 6:00 PM 3. Debugging of functions
+Hours Workout 9 __—
+Date: 07/ 28 / 2016 1. Final check of the system before presentation 100%
+Time In: 8:00 AM 2. Preparation for the presentation 100%
+Time Out: 6200 PM 3. Presentation of the inventory system 100%
+Hours Workooo 9 __—
+Date: 07 /29 / 2016 1. Distribution of work to be done on the revision 100%
+Time In: 8:00 AM 2. Fixing minor errors on the front-end
+Time Out: 6200 PM 3. Started on the revisions on the back-end I
+Hours Worker“ 9 ——_ '
+Date: I / 20 _—— 1
+Time In: —__ I
+Time Out __-
+Hours Workoo= __—
+Prepared by: Conforme:
+Inter 5 Signature Supe ’5 Signature
+Date: 08 / 01 / 2016 Date 08 / 01 / 2016
+UST:A022-01-I=o15
+
