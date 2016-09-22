@@ -49,6 +49,7 @@ public class Test {
         firstLevelClassifier.writeResultFile();
     }
 
+    //TODO
     public static void StartSecondLevelTesting() throws IOException, InvalidInputDataException {
         long start = System.currentTimeMillis();
         FirstLevelClassifier firstLevelClassifier = new FirstLevelClassifier();
