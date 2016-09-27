@@ -232,7 +232,7 @@ public class Train
 
 	private void exit_with_help()
 	{
-		System.out.printf( "Usage: startTraining [options] training_set_file [model_file]%n" //
+		System.out.printf( "Usage: firstLevelTraining [options] training_set_file [model_file]%n" //
 				+ "options:%n" + "-s type : set type of solver (default 1)%n" + "  for multi-class classification%n" + "    0 -- L2-regularized logistic regression (primal)%n"
 				+ "    1 -- L2-regularized L2-loss support vector classification (dual)%n"
 				+ "    2 -- L2-regularized L2-loss support vector classification (primal)%n" + "    3 -- L2-regularized L1-loss support vector classification (dual)%n"

@@ -2,11 +2,13 @@ package com.ust.main;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 
 import com.ust.SVM.FirstLevelClassifier;
+import com.ust.SVM.SecondLevelClassifier;
 import com.ust.SVM.Test;
 import com.ust.SVM.Train;
 import com.ust.util.FileUtilities;
@@ -21,74 +23,94 @@ public class Main {
     /**
      * The root folder of the Categorizer
      */
-    public static String categorizedFilesPath = "CategorizedDocuments";
+    public static String CATEGORIZED_FILES_PATH = "CategorizedDocuments";
 
-    public static String projectFolderPath = "project";
+    public static String PROJECT_FOLDER_PATH = "project";
 
-    public static String tempFolderPath = "tempFolder";
+    public static String TEMPORARY_FOLDER_PATH = "tempFolder";
 
-    public static String classNameFile = "class_name.txt";
+    public static String FIRST_LEVEL_FOLDER_NAME = "firstLevel";
 
-    public static String devLabelFile = "dev_label.txt";
+    public static String SECOND_LEVEL_FOLDER_NAME = "secondLevel";
 
-    public static String devFolderName = "dev";
+    public static String CLASS_NAME_FILE_NAME = "class_name.txt";
 
-    public static String trainingFolderName = "train";
+    public static String DEV_LABEL_FILE_NAME = "dev_label.txt";
 
-    public static Map<Integer, String> categoryFolderNames = new HashMap<>();
+    public static String DEV_FOLDER_NAME = "dev";
+
+    public static String TRAINING_FOLDER_NAME = "train";
+
+    public static Map<Integer, String> FIRST_LEVEL_FOLDER_NAMES = new HashMap<>();
+
+    public static Map<Integer, String> SECOND_LEVEL_FOLDER_NAMES = new HashMap<>();
 
 
     public static void main(String args[]) {
 
         try {
-            copyClassFile();
-            Train.startTraining();
 
-            //copyDevFile();
-            Test.StartFirstLevelTesting();
+            // createFirstLevelTestOCRFiles();
+
+
+            Train.firstLevelTraining();
+            Train.secondLevelTraining();
+
 
             getFirstLevelTrainingFolderNames();
-            File[] originalFiles = new File(projectFolderPath+File.separator+devFolderName).listFiles(new PictureFileFilter());
+            getSecondLevelTrainingFolderNames();
+
+            Test.StartFirstLevelTesting();
+
+
+            File[] originalFiles = new File(PROJECT_FOLDER_PATH + File.separator + DEV_FOLDER_NAME).listFiles(new PictureFileFilter());
+
+
             ArrayList<Integer> results = getResults(new File(FirstLevelClassifier.OUTPUT_RESULT_FILE));
-            //copy the files.
+
             moveCategorizedFiles(originalFiles, results);
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InvalidInputDataException e) {
+            // createSecondLevelTestOCRFiles();
+
+            Test.StartSecondLevelTesting();
+
+            results = getResults(new File(SecondLevelClassifier.OUTPUT_RESULT_FILE));
+
+            originalFiles = new File(PROJECT_FOLDER_PATH + File.separator + DEV_FOLDER_NAME + 2).listFiles(new PictureFileFilter());
+
+
+            moveLetterFiles(originalFiles, results);
+
+            FileUtils.cleanDirectory(new File("project/dev2"));
+
+        } catch (IOException | InvalidInputDataException e) {
             e.printStackTrace();
         }
     }
+
 
     /**
      * com.ust.categorize Main method of the program
      *
      * @param args
      */
-    public static void categorize(String[] args, boolean train, boolean test) {
+    public static void categorize(String[] args, boolean train, boolean test, boolean trainOCR, boolean testOCR) {
 
 
         if (args.length == 2) {
-            projectFolderPath = args[0];
-            categorizedFilesPath = args[1] + File.separator + categorizedFilesPath;
+            PROJECT_FOLDER_PATH = args[0];
+            CATEGORIZED_FILES_PATH = args[1] + File.separator + CATEGORIZED_FILES_PATH;
         }
-        // static String[] categories
-
-        //Copy the class_name file
-        copyClassFile();
-
-        //Copy the dev_label file
-        copyDevFile();
 
         //get categories
         getFirstLevelTrainingFolderNames();
         try {
             if (train) {
                 //start copying training files
-                copyTrainingFiles();
+                createTrainingOCRFiles();
                 //Start Training all data
-                Train.startTraining();
+                Train.firstLevelTraining();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,12 +121,12 @@ public class Main {
             //Start Classifying all the testData
             if (test) {
                 //Method used to create an OCR File of the test and training data
-                createTestOCRFiles();
+                createFirstLevelTestOCRFiles();
 
                 Test.StartFirstLevelTesting();
 
                 //Delete the Categorized documents folder
-                //FileUtils.deleteDirectory(new File(categorizedFilesPath));
+                //FileUtils.deleteDirectory(new File(CATEGORIZED_FILES_PATH));
                 ////Create the root folder and the subfolders for the categorized files
                 initializeFolders();
 
@@ -114,7 +136,7 @@ public class Main {
                 ArrayList<Integer> results = getResults(new File("result.txt"));
 
                 //copy the files.
-                moveCategorizedFiles(originalFiles, results);
+                moveLetterFiles(originalFiles, results);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,12 +147,23 @@ public class Main {
 
 
     /**
-     * Method to create OCR Files on the startTraining and dev folder
+     * Method to create OCR Files on the firstLevelTraining and dev folder
      */
-    public static void createTestOCRFiles() {
+    public static void createFirstLevelTestOCRFiles() {
         try {
-            System.out.println("CREATING OCR FOR TEST FILES");
-            FileUtilities.createOCRFile(new File(projectFolderPath + "/" + devFolderName), new File(tempFolderPath + File.separator + devFolderName));
+            System.out.println("====CREATING OCR FOR TEST FILES====");
+            FileUtilities.createOCRFile(new File(PROJECT_FOLDER_PATH + "/" + DEV_FOLDER_NAME), new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void createSecondLevelTestOCRFiles() {
+        try {
+            System.out.println("====CREATING OCR FOR TEST FILES====");
+            FileUtilities.createOCRFile(new File(PROJECT_FOLDER_PATH + "/" + DEV_FOLDER_NAME + 2), new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME + 2));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -140,26 +173,32 @@ public class Main {
     /**
      * method to copy text files for training
      */
-    public static void copyTrainingFiles() {
-        System.out.println("COPYING TRAINING FILES");
+    public static void createTrainingOCRFiles() {
+        System.out.println("CREATING OCR FOR TRAINING FILES");
         try {
-            FileUtilities.createOCRFile(new File(projectFolderPath + "/train"), new File(tempFolderPath + "/train"));
+            FileUtilities.createOCRFile(new File(PROJECT_FOLDER_PATH + "/" + TRAINING_FOLDER_NAME), new File(TEMPORARY_FOLDER_PATH + "/" + TRAINING_FOLDER_NAME));
         } catch (IOException e) {
             System.out.println("ERROR IN COPYING TRAINING FILES");
             e.printStackTrace();
         }
     }
 
+    /**
+     *
+     */
     public static void copyDevFile() {
         System.out.println("COPYING DEV FILE");
-        FileUtilities.copyDevLabelFile(new File(projectFolderPath + File.separator + devLabelFile), new File(tempFolderPath + File.separator + devLabelFile));
+        FileUtilities.copyDevLabelFile(new File(PROJECT_FOLDER_PATH + File.separator + DEV_LABEL_FILE_NAME), new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_LABEL_FILE_NAME));
         System.out.println("DEV FILE COPIED");
     }
 
+    /**
+     *
+     */
     public static void copyClassFile() {
         try {
             System.out.println("COPYING CLASS NAMES FILE");
-            FileUtils.copyFile(new File(projectFolderPath + File.separator + classNameFile), new File(tempFolderPath + File.separator + classNameFile));
+            FileUtils.copyFile(new File(PROJECT_FOLDER_PATH + File.separator + CLASS_NAME_FILE_NAME), new File(TEMPORARY_FOLDER_PATH + File.separator + CLASS_NAME_FILE_NAME));
             System.out.println("CLASS NAME FILE COPIED");
         } catch (IOException e) {
             System.out.println("ERROR IN COPYING CLASS FILE");
@@ -167,6 +206,25 @@ public class Main {
         }
     }
 
+
+    public static void moveLetterFiles(File[] categorizedFile, ArrayList<Integer> results) {
+        for (int index = 0; index < results.size(); index++) {
+
+
+            try {
+                //System.out.println("MOVING FILE" + categorizedFile[index].getName() +" to "+FIRST_LEVEL_FOLDER_NAMES.get(results.get(index)) );
+                FileUtils.copyFile(categorizedFile[index],
+                        new File(CATEGORIZED_FILES_PATH
+                                + File.separator + "letters"
+                                + File.separator + SECOND_LEVEL_FOLDER_NAMES.get(results.get(index))
+                                + File.separator + categorizedFile[index].getName()));
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     /**
      * Method for moving the categorized files based on the results.txt
@@ -176,13 +234,41 @@ public class Main {
      */
     public static void moveCategorizedFiles(File[] categorizedFile, ArrayList<Integer> results) {
         System.out.println("MOVING FILES");
+
+        File[] OCRFILES = new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME).listFiles((dir) -> dir.getName().toLowerCase().endsWith(".txt"));
+
+
         for (int index = 0; index < results.size(); index++) {
+
+
             try {
-                System.out.println("MOVING FILE" + categorizedFile[index].getName());
+
+
+                System.out.println(categorizedFile[index].getName() + "---->" + FIRST_LEVEL_FOLDER_NAMES.get(results.get(index)));
+                //if letters
+                if (results.get(index) == 0) {
+
+                    FileUtils.copyFile(categorizedFile[index].getAbsoluteFile(),
+                            new File(PROJECT_FOLDER_PATH + File.separator + "dev2"
+                                    + File.separator + categorizedFile[index].getName()));
+
+
+                    FileUtils.copyFile(OCRFILES[index],
+                            new File(TEMPORARY_FOLDER_PATH
+                                    + File.separator + "dev2"
+                                    + File.separator + OCRFILES[index].getName()));
+                    continue;
+
+                }
+
+
+                //System.out.println("MOVING FILE" + categorizedFile[index].getName() +" to "+FIRST_LEVEL_FOLDER_NAMES.get(results.get(index)) );
                 FileUtils.copyFile(categorizedFile[index],
-                        new File(categorizedFilesPath + File.separator
-                                + categoryFolderNames.get(results.get(index)) + File.separator
+                        new File(CATEGORIZED_FILES_PATH + File.separator
+                                + FIRST_LEVEL_FOLDER_NAMES.get(results.get(index)) + File.separator
                                 + categorizedFile[index].getName()));
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -201,6 +287,7 @@ public class Main {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(result));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
+                //kukunin ang fileName
                 resultArrayList.add(Integer.parseInt(line.split(" ")[1]));
             }
         } catch (IOException e) {
@@ -215,36 +302,72 @@ public class Main {
      */
     public static void initializeFolders() {
         System.out.println("INITIALIZING FOLDERS");
-        File mainFolder = new File(categorizedFilesPath);
+        File mainFolder = new File(CATEGORIZED_FILES_PATH);
         mainFolder.mkdir();
 
-        File tempFolder = new File(tempFolderPath);
+        File tempFolder = new File(TEMPORARY_FOLDER_PATH);
         tempFolder.mkdir();
 
         //folders for the categorized documents root directory
 
-        for (String currentFolderName : categoryFolderNames.values()) {
-            File file = new File(categorizedFilesPath + File.separator + currentFolderName);
+        for (String currentFolderName : FIRST_LEVEL_FOLDER_NAMES.values()) {
+            File file = new File(CATEGORIZED_FILES_PATH + File.separator + currentFolderName);
             file.mkdir();
         }
         System.out.println("FOLDERS CREATED");
 
     }
 
+    /**
+     * get the categories of the folder for training
+     */
     public static void getFirstLevelTrainingFolderNames() {
         //ArrayList<String> pathNames = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(projectFolderPath + File.separator + classNameFile));
+            BufferedReader br = new BufferedReader(new FileReader(PROJECT_FOLDER_PATH
+                    + File.separator + TRAINING_FOLDER_NAME
+                    + File.separator + FIRST_LEVEL_FOLDER_NAME
+                    + File.separator + CLASS_NAME_FILE_NAME));
+
             String line;
             while ((line = br.readLine()) != null) {
                 String path = line.split(" ")[1];
                 path = path.replace(".", File.separator);
                 path += File.separator;
 
-                categoryFolderNames.put(Integer.parseInt(line.split(" ")[0]), path);
+                FIRST_LEVEL_FOLDER_NAMES.put(Integer.parseInt(line.split(" ")[0]), path);
             }
-            categoryFolderNames.put(categoryFolderNames.size(), "others" + File.separator);
+
+            FIRST_LEVEL_FOLDER_NAMES.put(FIRST_LEVEL_FOLDER_NAMES.size(), "others" + File.separator);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("CLASS FILE NOT FOUND");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("ERROR IN CLASS FILE");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void getSecondLevelTrainingFolderNames() {
+        //ArrayList<String> pathNames = new ArrayList<>();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(PROJECT_FOLDER_PATH
+                    + File.separator + TRAINING_FOLDER_NAME
+                    + File.separator + SECOND_LEVEL_FOLDER_NAME
+                    + File.separator + CLASS_NAME_FILE_NAME));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String path = line.split(" ")[1];
+                path = path.replace(".", File.separator);
+                path += File.separator;
+
+                SECOND_LEVEL_FOLDER_NAMES.put(Integer.parseInt(line.split(" ")[0]), path);
+            }
+            SECOND_LEVEL_FOLDER_NAMES.put(SECOND_LEVEL_FOLDER_NAMES.size(), "others" + File.separator);
 
         } catch (FileNotFoundException e) {
             System.out.println("CLASS FILE NOT FOUND");

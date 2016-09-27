@@ -60,7 +60,7 @@ public class GUI extends JFrame {
                     outputPathTextField.getText().trim().length() != 0) {
                 String sourcePath = sourcePathTextField.getText();
                 String destinationPath = outputPathTextField.getText();
-                Main.categorize(new String[]{sourcePath,destinationPath},train,test);
+                Main.categorize(new String[]{sourcePath,destinationPath},train,test,true,true);
             }
         });
     }

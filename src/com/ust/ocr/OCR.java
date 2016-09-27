@@ -13,9 +13,7 @@ import java.io.File;
  */
 public class OCR {
 
-    public static ITesseract instance = new Tesseract();
-
-    
+    public static Tesseract instance = new Tesseract();
 
 
     /**

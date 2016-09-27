@@ -15,12 +15,17 @@ public class Test {
     /**
      * A String to the path of the dev_label.txt which consists of the correct categories of the test documents
      */
-    static String pathOfFirstLevelClassName = Main.tempFolderPath+ File.separator+Main.devLabelFile;
+    static String pathOfFirstLevelClassName = Main.PROJECT_FOLDER_PATH
+            +File.separator+Main.DEV_LABEL_FILE_NAME;
 
     /**
      * A String of the path to the testData
      */
-    static String pathOfFirstLevelTestData = Main.tempFolderPath+File.separator+Main.devFolderName;
+    static String pathOfFirstLevelTestData = Main.TEMPORARY_FOLDER_PATH
+            +File.separator+Main.DEV_FOLDER_NAME;
+
+    static String pathOfSecondLevelTestData = Main.TEMPORARY_FOLDER_PATH
+            +File.separator+Main.DEV_FOLDER_NAME+2;
 
     /**
      * A method used to start the classification of the System
@@ -52,21 +57,21 @@ public class Test {
     //TODO
     public static void StartSecondLevelTesting() throws IOException, InvalidInputDataException {
         long start = System.currentTimeMillis();
-        FirstLevelClassifier firstLevelClassifier = new FirstLevelClassifier();
-        firstLevelClassifier.buildTestFile(pathOfFirstLevelClassName, pathOfFirstLevelTestData);
+        SecondLevelClassifier secondLevelClassifier = new SecondLevelClassifier();
+        secondLevelClassifier.buildTestFile(pathOfFirstLevelClassName, pathOfSecondLevelTestData);
         long end = System.currentTimeMillis();
         System.out.println("Time taken to build StartFirstLevelTesting file= " + (end - start) + " msec");
 
         start = System.currentTimeMillis();
         Linear.disableDebugOutput();
         String[] param = new String[3];
-        param[0] = firstLevelClassifier.OUTPUT_TEST_FILE;
-        param[1] = firstLevelClassifier.OUTPUT_MODEL_FILE;
-        param[2] = firstLevelClassifier.OUTPUT_RESULT_FILE;
+        param[0] = secondLevelClassifier.OUTPUT_TEST_FILE;
+        param[1] = secondLevelClassifier.OUTPUT_MODEL_FILE;
+        param[2] = secondLevelClassifier.OUTPUT_RESULT_FILE;
         Linear.enableDebugOutput();
         Predict.main(param);
         end = System.currentTimeMillis();
         System.out.println("Time taken to classify = " + (end - start) + " msec");
-        firstLevelClassifier.writeResultFile();
+        secondLevelClassifier.writeResultFile();
     }
 }

@@ -1,5 +1,0 @@
-0 letter.complaint
-1 letter.resignation
-2 letter.application
-3 memorandum
-4 reports

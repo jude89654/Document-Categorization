@@ -17,7 +17,7 @@ import java.util.TreeMap;
 
 public class FirstLevelClassifier {
 
-    public static String  firstLevelFolderName ="FirstLevelClassifierFiles";
+    public static String  firstLevelFolderName ="SVM1stLevelFiles";
 
 
     HashSet<String> stopwords = new HashSet<String>();
@@ -28,7 +28,7 @@ public class FirstLevelClassifier {
     ArrayList<TrainData> testDataList = new ArrayList<TrainData>();
 
     final String STOPWORD_FILENAME = "stopwords";
-    final String OUTPUT_TRAIN_FILE = firstLevelFolderName+File.separator+"startTraining.txt";
+    final String OUTPUT_TRAIN_FILE = firstLevelFolderName+File.separator+"firstLevelTrainingData.txt";
     final String OUTPUT_TEST_FILE = firstLevelFolderName+File.separator+"test.txt";
     final String OUTPUT_MODEL_FILE = firstLevelFolderName+File.separator+"model.txt";
     public final static String OUTPUT_RESULT_FILE = firstLevelFolderName+File.separator+"result.txt";
@@ -59,11 +59,11 @@ public class FirstLevelClassifier {
         StringBuilder sb = new StringBuilder();
 
 
-        System.out.println("PREDICTIONS");
+        //System.out.println("PREDICTIONS");
         //writing results
         while ((line = br.readLine()) != null) {
             if (!line.isEmpty()) {
-                System.out.println("FILENAME:"+testDataList.get(i).filename.split(".txt")[0]+" " + line.split("\\.")[0]);
+               // System.out.println("FILENAME:"+testDataList.get(i).filename.split(".txt")[0]+" " + line.split("\\.")[0]);
                 sb.append(testDataList.get(i).filename).append(" " + (line.split("\\."))[0]).append("\n");
                 i++;
             }
@@ -118,7 +118,7 @@ public class FirstLevelClassifier {
                 testClassNameMap.put(tokens[0], Integer.parseInt(tokens[1]));
         }*/
         for (File file:
-             new File(Main.tempFolderPath+File.separator+Main.devFolderName).listFiles(e->e.getName().endsWith(".txt"))) {
+             new File(Main.TEMPORARY_FOLDER_PATH +File.separator+Main.DEV_FOLDER_NAME).listFiles(e->e.getName().endsWith(".txt"))) {
             testClassNameMap.put(file.getName().split(".txt")[0]+".txt",0);
 
         }
