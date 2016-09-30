@@ -50,7 +50,10 @@ public class Main {
 
         try {
 
-            // createFirstLevelTestOCRFiles();
+            createTrainingOCRFiles();
+            createFirstLevelTestOCRFiles();
+
+
 
 
             Train.firstLevelTraining();
