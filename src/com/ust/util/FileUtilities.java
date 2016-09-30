@@ -51,6 +51,8 @@ public class FileUtilities {
             target.mkdir();
         }
 
+
+        //TODO
         for (String f : source.list()) {
             createOCRFile(new File(source, f), new File(target, f));
         }
