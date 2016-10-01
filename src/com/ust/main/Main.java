@@ -11,6 +11,7 @@ import com.ust.SVM.FirstLevelClassifier;
 import com.ust.SVM.SecondLevelClassifier;
 import com.ust.SVM.Test;
 import com.ust.SVM.Train;
+import com.ust.ocr.OCR;
 import com.ust.util.FileUtilities;
 import com.ust.util.PictureFileFilter;
 import liblinear.InvalidInputDataException;
@@ -50,7 +51,7 @@ public class Main {
 
         try {
 
-            createTrainingOCRFiles();
+            //createTrainingOCRFiles();
             createFirstLevelTestOCRFiles();
 
 
@@ -153,16 +154,20 @@ public class Main {
      * Method to create OCR Files on the firstLevelTraining and dev folder
      */
     public static void createFirstLevelTestOCRFiles() {
-        try {
             System.out.println("====CREATING OCR FOR TEST FILES====");
-            FileUtilities.createOCRFile(new File(PROJECT_FOLDER_PATH + "/" + DEV_FOLDER_NAME), new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
+            //FileUtilities.createOCRFile(new File(PROJECT_FOLDER_PATH + "/" + DEV_FOLDER_NAME), new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
+            Arrays.stream(new File(PROJECT_FOLDER_PATH+File.separator+DEV_FOLDER_NAME)
+                    .listFiles(new PictureFileFilter())).parallel()
+                    .forEach(file->OCR.createTextFile(file,DEV_FOLDER_NAME));
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
     }
 
 
+    /**
+     * ocr of the 2nd level ocr files.
+     */
     public static void createSecondLevelTestOCRFiles() {
         try {
             System.out.println("====CREATING OCR FOR TEST FILES====");
@@ -210,6 +215,11 @@ public class Main {
     }
 
 
+    /**
+     * method to move the files after getting the results from the 2nd level svm
+     * @param categorizedFile list of files to be categorized and moved
+     * @param results the result from the 2nd level svm
+     */
     public static void moveLetterFiles(File[] categorizedFile, ArrayList<Integer> results) {
         for (int index = 0; index < results.size(); index++) {
 
@@ -233,7 +243,7 @@ public class Main {
      * Method for moving the categorized files based on the results.txt
      *
      * @param categorizedFile Array of files
-     * @param results
+     * @param results the results from the 1st level svm
      */
     public static void moveCategorizedFiles(File[] categorizedFile, ArrayList<Integer> results) {
         System.out.println("MOVING FILES");
@@ -280,9 +290,8 @@ public class Main {
 
     /**
      * create an ArrayList of integers of the result of the categorization of the current file.
-     *
-     * @param result
-     * @return
+     * @param result the text file given by the svm
+     * @return an arraylist of the results :D
      */
     public static ArrayList<Integer> getResults(File result) {
         ArrayList<Integer> resultArrayList = new ArrayList<>();
@@ -354,6 +363,9 @@ public class Main {
 
     }
 
+    /**
+     * get the folder names that are the classes of the 2nd level svm
+     */
     public static void getSecondLevelTrainingFolderNames() {
         //ArrayList<String> pathNames = new ArrayList<>();
 

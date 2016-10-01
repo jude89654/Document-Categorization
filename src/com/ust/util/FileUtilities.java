@@ -65,7 +65,8 @@ public class FileUtilities {
                 |source.getName().toLowerCase().endsWith(".jpg")) {
 
             FileUtilities.renameFileExtension(target.getAbsolutePath(), "txt");
-            String content = OCR.getOCRText(source);
+            OCR ocr = new OCR();
+            String content = ocr.getOCRText(source);
             FileWriter fileWriter = new FileWriter(target, false);
             fileWriter.append(content);
             fileWriter.close();
