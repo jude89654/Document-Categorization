@@ -47,11 +47,11 @@ public class OCR {
 
         try {
             File outputFile = new File(Main.TEMPORARY_FOLDER_PATH+File.separator+outputFolder+File.separator+file.getName());
-
+            FileUtilities.renameFileExtension(outputFile.getCanonicalPath(),"txt");
             FileWriter fileWriter = new FileWriter(outputFile);
             fileWriter.write(line);
             fileWriter.close();
-            FileUtilities.renameFileExtension(outputFile.getPath(), "txt");
+            FileUtilities.renameFileExtension(outputFile.getCanonicalPath(), "txt");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,10 +1,14 @@
 package com.ust.form;
 
+import com.ust.logs.JTextAreaOutputStream;
 import com.ust.main.Main;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.text.DefaultCaret;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by pc1 on 21/09/2016.
@@ -19,11 +23,14 @@ public class GUI extends JFrame {
     private JButton RESETButton;
     private JCheckBox trainCheckBox;
     private JCheckBox testCheckBox;
-    private JButton STARTButton;
+    private JButton startButton;
     private JPanel mainPanel;
-    private String welcomeText = "THANK YOU FOR USING THE MEANS SYSTEM";
+    private JLabel authorsLabel;
+    private String welcomeText = "THANK YOU FOR USING THE SYSTEM";
 
-
+    /**
+     * CONSTRUCTOR THAT INITIALIZES THE GUI AND MAKES IT VISIBLE
+     */
     public GUI() {
         super("DOCUMENT GENRE DETECTOR AND SUBCATEGORIZER");
 
@@ -33,13 +40,20 @@ public class GUI extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        DefaultCaret caret = (DefaultCaret)logsTextArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        JTextAreaOutputStream outputStream = new JTextAreaOutputStream(logsTextArea);
+        System.setOut(new PrintStream(outputStream));
+
 
         logsTextArea.setText(welcomeText);
 
         //actions for the browse button
         sourceBrowseButton.addActionListener(e -> {
             String path = getFolderPath();
+            System.out.println("SOURCE:"+path);
             sourcePathTextField.setText(path);
+            File projectFolder = new File(path);
         });
         outputBrowseButton.addActionListener(e -> {
             String path = getFolderPath();
@@ -53,14 +67,14 @@ public class GUI extends JFrame {
 
         //listerner for the start button
 
-        STARTButton.addActionListener(e -> {
-            boolean test = testCheckBox.isSelected();
-            boolean train = trainCheckBox.isSelected();
-            if (sourcePathTextField.getText().trim().length() != 0 |
-                    outputPathTextField.getText().trim().length() != 0) {
+        startButton.addActionListener(e -> {
+
+            if (!sourcePathTextField.getText().trim().equals("") &
+                    !outputPathTextField.getText().trim().equals("")) {
+                System.out.println("STARTING SYSTEM");
                 String sourcePath = sourcePathTextField.getText();
                 String destinationPath = outputPathTextField.getText();
-                Main.categorize(new String[]{sourcePath,destinationPath},train,test,true,true);
+                start(sourcePath,destinationPath);
             }
         });
     }
@@ -71,7 +85,7 @@ public class GUI extends JFrame {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 System.out.println(info.getName());
                 if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
@@ -80,6 +94,11 @@ public class GUI extends JFrame {
         }
     }
 
+
+    /**
+     * Method used to get a strung path
+     * @return
+     */
     public String getFolderPath() {
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -94,8 +113,16 @@ public class GUI extends JFrame {
         }
     }
 
-    public static void logMessage(String message){
-       // logsTextArea.append(message+"\n");
+    public void start(String projectPath, String destinationPath){
+        Thread thread = new Thread(){
+            public void run(){
+                startButton.setEnabled(false);
+                //TODO
+                Main.start(projectPath,destinationPath,trainCheckBox.isSelected(),testCheckBox.isSelected(),true,true);
+                startButton.setEnabled(true);
+            }
+        };
+        thread.start();
     }
 }
 
