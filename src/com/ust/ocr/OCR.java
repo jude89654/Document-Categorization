@@ -46,6 +46,10 @@ public class OCR {
         //FileUtils.deleteQuietly(file);
 
         try {
+            //create directory
+            new File(Main.TEMPORARY_FOLDER_PATH+File.separator+outputFolder).mkdirs();
+
+
             File outputFile = new File(Main.TEMPORARY_FOLDER_PATH+File.separator+outputFolder+File.separator+file.getName());
             FileUtilities.renameFileExtension(outputFile.getCanonicalPath(),"txt");
             FileWriter fileWriter = new FileWriter(outputFile);
@@ -68,11 +72,11 @@ public class OCR {
         Tesseract1 instance = new Tesseract1();
         instance.setLanguage("eng");
         try {
-            System.out.println("NOW READING IMAGE:"+file.getName());
+            System.out.println("NOW READING IMAGE: "+file.getPath());
             File convertedImage = convertImage(file);
-            System.out.println("NOW CREATING OCR TEXT FILE FOR:\t"+file.getName());
+            System.out.println("NOW CREATING OCR TEXT FILE FOR: "+file.getPath());
             String result = instance.doOCR(convertedImage);
-            System.out.println("OCR TEXT CREATED FOR:\t"+file.getName());
+            System.out.println("TEXT FILE CREATED: "+file.getPath());
             return result;
         } catch (TesseractException e) {
             System.out.println("ERROR ON CREATING OCR ON FILE:"+file.getName());
@@ -90,7 +94,7 @@ public class OCR {
      * @return the jpeg file :D
      */
     public  File convertImage(File file){
-        System.out.println("CONVERTING IMAGE:"+file.getName());
+        System.out.println("CONVERTING IMAGE:"+file.getPath());
         try{
             FileInputStream inputStream = new FileInputStream(file);
 
@@ -98,7 +102,7 @@ public class OCR {
             File tempFile = new File(tempPictureFolderName+File.separator+file.getName()+".png");
 
             ImageIO.write(image,"png",tempFile);
-            System.out.println("IMAGE CONVERTED");
+            System.out.println("IMAGE CONVERTED:"+file.getPath());
 
             inputStream.close();
 

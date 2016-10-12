@@ -55,7 +55,9 @@ public class Main {
 
         if (train) {
             if (OCRTrain) {
-                createTrainingOCRFiles();
+                createFirstLevelTrainingOCRFiles();
+                createSecondLevelTrainingOCRFiles();
+
             }
 
         }
@@ -102,7 +104,10 @@ public class Main {
 
 
     public static void main(String args[]) {
+        createFirstLevelTrainingOCRFiles();
+                createSecondLevelTrainingOCRFiles();
 
+/*
         try {
 
             //createTrainingOCRFiles();
@@ -142,7 +147,7 @@ public class Main {
 
         } catch (IOException | InvalidInputDataException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 
@@ -161,33 +166,50 @@ public class Main {
     }
 
 
-    /**
-     * ocr of the 2nd level ocr files.
-     */
-    public static void createSecondLevelTestOCRFiles() {
-        try {
-            System.out.println("====CREATING OCR FOR TEST FILES====");
-            FileUtilities.createOCRFile(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME),
-                    new File(TEMPORARY_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * method to copy text files for training
      */
-    public static void createTrainingOCRFiles() {
-        System.out.println("CREATING OCR FOR TRAINING FILES");
-        try {
-            FileUtilities.createOCRFile(new File(PROJECT_FOLDER_PATH + "/" + TRAINING_FOLDER_NAME), new File(TEMPORARY_FOLDER_PATH + "/" + TRAINING_FOLDER_NAME));
-        } catch (IOException e) {
-            System.out.println("ERROR IN COPYING TRAINING FILES");
-            e.printStackTrace();
+    public static void createFirstLevelTrainingOCRFiles() {
+        System.out.println("CREATING OCR FOR FIRST LEVEL TRAINING FILES");
+
+        //OCR FOR LETTERS
+             File firstLevelTrainingFolder = new File(PROJECT_FOLDER_PATH
+                     +File.separator+ TRAINING_FOLDER_NAME
+                     +File.separator + FIRST_LEVEL_FOLDER_NAME);
+
+       //System.out/.println
+        for (File folder : firstLevelTrainingFolder.listFiles(File::isDirectory)) {
+            System.out.println(folder.getPath());
+            Arrays.stream(folder
+                .listFiles(new PictureFileFilter())).parallel()
+                .forEach(file -> OCR.createTextFile(file,  firstLevelTrainingFolder.getName()+File.separator+folder.getName()));
+
         }
+        System.out.println("FIRST LEVEL OCR FINISHED");
+
     }
 
+
+     public static void createSecondLevelTrainingOCRFiles() {
+        System.out.println("CREATING OCR FOR SECOND LEVEL TRAINING FILES");
+
+        //OCR FOR LETTERS
+             File secondLevelTrainingFolder = new File(PROJECT_FOLDER_PATH
+                      +File.separator+PROJECT_FOLDER_PATH
+                     +File.separator + SECOND_LEVEL_FOLDER_NAME);
+
+        for (File folder:
+             secondLevelTrainingFolder.listFiles(File::isDirectory)) {
+            Arrays.stream(folder
+                .listFiles(new PictureFileFilter())).parallel()
+                .forEach(file -> OCR.createTextFile(file,  secondLevelTrainingFolder.getName()+File.separator+folder.getName()));
+
+        }
+        System.out.println("SECOND LEVEL OCR FINISHED");
+
+
+    }
     /**
      *
      */
