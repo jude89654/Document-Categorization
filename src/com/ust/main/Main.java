@@ -59,6 +59,20 @@ public class Main {
                 createSecondLevelTrainingOCRFiles();
 
             }
+            try {
+                Train.firstLevelTraining();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InvalidInputDataException e) {
+                e.printStackTrace();
+            }
+            try {
+                Train.secondLevelTraining();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InvalidInputDataException e) {
+                e.printStackTrace();
+            }
 
         }
 
