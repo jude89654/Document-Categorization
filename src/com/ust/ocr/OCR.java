@@ -3,6 +3,7 @@ package com.ust.ocr;
 import com.ust.main.Main;
 import com.ust.util.FileUtilities;
 import com.ust.util.PictureFileFilter;
+import net.coobird.thumbnailator.Thumbnails;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.Tesseract1;
@@ -82,6 +83,7 @@ public class OCR {
             System.out.println("CREATING OCR TEXT FILE FOR: "+file.getPath());
             String result = instance.doOCR(convertedImage);
             System.out.println("TEXT FILE CREATED: "+file.getPath());
+            //FileUtils.deleteQuietly(convertedImage);
             return result;
         } catch (TesseractException e) {
             System.out.println("ERROR ON CREATING OCR ON FILE:"+file.getName());
@@ -111,6 +113,7 @@ public class OCR {
 
             inputStream.close();
 
+            //Thumbnails.of(tempFile).size(3300,2550).toFile(tempFile.getPath());
 
             return tempFile;
 

@@ -81,18 +81,20 @@ public class Main {
 
 
         if (test) {
-            initializeFolders();
-            createFirstLevelTestOCRFiles();
-            getFirstLevelTrainingFolderNames();
-            getSecondLevelTrainingFolderNames();
 
+            initializeFolders();
             try {
                 //kasi gusto ko
                 FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
+                FileUtils.cleanDirectory(new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
                 FileUtils.cleanDirectory(new File("tempPicFolder"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            createFirstLevelTestOCRFiles();
+            getFirstLevelTrainingFolderNames();
+            getSecondLevelTrainingFolderNames();
 
             try {
                 Test.StartFirstLevelTesting();
