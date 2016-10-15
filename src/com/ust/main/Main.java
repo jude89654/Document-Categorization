@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 import com.ust.SVM.FirstLevelClassifier;
@@ -59,6 +60,7 @@ public class Main {
                 createSecondLevelTrainingOCRFiles();
 
             }
+
             try {
                 Train.firstLevelTraining();
             } catch (IOException e) {
@@ -76,10 +78,19 @@ public class Main {
 
         }
 
+
+
         if (test) {
+
             createFirstLevelTestOCRFiles();
             getFirstLevelTrainingFolderNames();
             getSecondLevelTrainingFolderNames();
+
+            try {
+                FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             try {
                 Test.StartFirstLevelTesting();
@@ -91,6 +102,7 @@ public class Main {
             ArrayList<Integer> results = getResults(new File(FirstLevelClassifier.OUTPUT_RESULT_FILE));
 
             moveCategorizedFiles(originalFiles, results);
+
 
 
             // createSecondLevelTestOCRFiles();
@@ -116,53 +128,6 @@ public class Main {
         }
     }
 
-
-    public static void main(String args[]) {
-        createFirstLevelTrainingOCRFiles();
-                createSecondLevelTrainingOCRFiles();
-
-/*
-        try {
-
-            //createTrainingOCRFiles();
-            createFirstLevelTestOCRFiles();
-
-
-            Train.firstLevelTraining();
-            Train.secondLevelTraining();
-
-
-            getFirstLevelTrainingFolderNames();
-            getSecondLevelTrainingFolderNames();
-
-            Test.StartFirstLevelTesting();
-
-
-            File[] originalFiles = new File(PROJECT_FOLDER_PATH + File.separator + DEV_FOLDER_NAME).listFiles(new PictureFileFilter());
-
-
-            ArrayList<Integer> results = getResults(new File(FirstLevelClassifier.OUTPUT_RESULT_FILE));
-
-            moveCategorizedFiles(originalFiles, results);
-
-
-            // createSecondLevelTestOCRFiles();
-
-            Test.StartSecondLevelTesting();
-
-            results = getResults(new File(SecondLevelClassifier.OUTPUT_RESULT_FILE));
-
-            originalFiles = new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME).listFiles(new PictureFileFilter());
-
-
-            moveLetterFiles(originalFiles, results);
-
-            FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH+File.separator+SECOND_DEV_FOLDER_NAME));
-
-        } catch (IOException | InvalidInputDataException e) {
-            e.printStackTrace();
-        }*/
-    }
 
 
     /**
@@ -192,12 +157,18 @@ public class Main {
                      +File.separator+ TRAINING_FOLDER_NAME
                      +File.separator + FIRST_LEVEL_FOLDER_NAME);
 
+        AtomicInteger atomicInteger = new AtomicInteger(0);
        //System.out/.println
         for (File folder : firstLevelTrainingFolder.listFiles(File::isDirectory)) {
             System.out.println(folder.getPath());
             Arrays.stream(folder
                 .listFiles(new PictureFileFilter())).parallel()
-                .forEach(file -> OCR.createTextFile(file,  firstLevelTrainingFolder.getName()+File.separator+folder.getName()));
+                .forEach(file ->{
+                    final int x = atomicInteger.incrementAndGet();
+                    System.out.println("PROCESSING IMAGE: "+x+ " OF " +folder.listFiles().length);
+                    OCR.createTextFile(file, TRAINING_FOLDER_NAME+File.separator+ firstLevelTrainingFolder.getName()+File.separator+folder.getName());
+                    System.out.println("OCR IMAGE: " + x + " OF "+folder.listFiles().length+" FINISHED");
+                });
 
         }
         System.out.println("FIRST LEVEL OCR FINISHED");
@@ -210,14 +181,20 @@ public class Main {
 
         //OCR FOR LETTERS
              File secondLevelTrainingFolder = new File(PROJECT_FOLDER_PATH
-                      +File.separator+PROJECT_FOLDER_PATH
+                      +File.separator+TRAINING_FOLDER_NAME
                      +File.separator + SECOND_LEVEL_FOLDER_NAME);
 
+         AtomicInteger atomicInteger = new AtomicInteger(0);
         for (File folder:
              secondLevelTrainingFolder.listFiles(File::isDirectory)) {
             Arrays.stream(folder
                 .listFiles(new PictureFileFilter())).parallel()
-                .forEach(file -> OCR.createTextFile(file,  secondLevelTrainingFolder.getName()+File.separator+folder.getName()));
+
+                .forEach(file ->{
+                    final int x = atomicInteger.incrementAndGet();
+                    System.out.println("PROCESSING IMAGE: "+x+ " OF " +folder.listFiles().length);OCR.createTextFile(file,  TRAINING_FOLDER_NAME+File.separator+secondLevelTrainingFolder.getName()+File.separator+folder.getName());
+                    System.out.println("OCR IMAGE: " + x + " OF "+folder.listFiles().length+" FINISHED");
+                });
 
         }
         System.out.println("SECOND LEVEL OCR FINISHED");
@@ -242,11 +219,13 @@ public class Main {
      * @param results         the result from the 2nd level svm
      */
     public static void moveLetterFiles(File[] categorizedFile, ArrayList<Integer> results) {
+
+        new File(CATEGORIZED_FILES_PATH+File.separator+"letters").mkdirs();
+
         for (int index = 0; index < results.size(); index++) {
 
-
             try {
-                System.out.println("MOVING FILE: " + categorizedFile[index].getName() +" ---> "+FIRST_LEVEL_FOLDER_NAMES.get(results.get(index)) );
+                System.out.println("MOVING FILE: " + categorizedFile[index].getName() +" ---> "+SECOND_LEVEL_FOLDER_NAMES.get(results.get(index)) );
                 FileUtils.copyFile(categorizedFile[index],
                         new File(CATEGORIZED_FILES_PATH
                                 + File.separator + "letters"
@@ -347,6 +326,7 @@ public class Main {
             File file = new File(CATEGORIZED_FILES_PATH + File.separator + currentFolderName);
             file.mkdir();
         }
+
         System.out.println("FOLDERS CREATED");
 
     }
