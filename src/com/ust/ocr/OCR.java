@@ -113,7 +113,7 @@ public class OCR {
 
             inputStream.close();
 
-            //Thumbnails.of(tempFile).size(3300,2550).toFile(tempFile.getPath());
+            Thumbnails.of(tempFile).size(3300,2550).toFile(tempFile.getPath());
 
             return tempFile;
 
