@@ -122,17 +122,16 @@ public class Main {
 
             moveLetterFiles(originalFiles, results);
 
+             //tanggalin ang comment para delete agad ang temp files temp files
+           /* try {
 
-            try {
-              //delete temp files
                  FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
                 FileUtils.cleanDirectory(new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
                 FileUtils.cleanDirectory(new File("tempPicFolder"));
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
-       // System.out.println("PROCESS FINISHED");
     }
 
 
