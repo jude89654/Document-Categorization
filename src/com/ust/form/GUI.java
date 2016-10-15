@@ -38,7 +38,7 @@ public class GUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
-        setVisible(true);
+       // setVisible(true);
 
         DefaultCaret caret = (DefaultCaret)logsTextArea.getCaret();
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
@@ -85,6 +85,8 @@ public class GUI extends JFrame {
 
     public static void main(String args[]) {
         GUI gui = new GUI();
+        //show the GUI
+        gui.setVisible(true);
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 System.out.println(info.getName());

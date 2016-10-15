@@ -77,9 +77,9 @@ public class OCR {
         Tesseract1 instance = new Tesseract1();
         instance.setLanguage("eng");
         try {
-            System.out.println("NOW READING IMAGE: "+file.getPath());
+            System.out.println("READING IMAGE: "+file.getPath());
             File convertedImage = convertImage(file);
-            System.out.println("NOW CREATING OCR TEXT FILE FOR: "+file.getPath());
+            System.out.println("CREATING OCR TEXT FILE FOR: "+file.getPath());
             String result = instance.doOCR(convertedImage);
             System.out.println("TEXT FILE CREATED: "+file.getPath());
             return result;
