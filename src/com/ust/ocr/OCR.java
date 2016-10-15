@@ -40,6 +40,11 @@ public class OCR {
         System.out.println("FINISHED NA");
     }
 
+    /**
+     * Method to create a textfile, and it will be put on the directory.
+     * @param file
+     * @param outputFolder
+     */
     public static void createTextFile(File file,String outputFolder){
         OCR ocr = new OCR();
         String line =ocr.getOCRText(file);

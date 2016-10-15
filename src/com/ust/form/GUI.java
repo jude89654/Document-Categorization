@@ -55,10 +55,13 @@ public class GUI extends JFrame {
             sourcePathTextField.setText(path);
             File projectFolder = new File(path);
         });
+
+        // action if the browse button is clicked
         outputBrowseButton.addActionListener(e -> {
             String path = getFolderPath();
             outputPathTextField.setText(path);
         });
+
         RESETButton.addActionListener(e -> {
             logsTextArea.setText("");
             logsTextArea.setText(welcomeText);
@@ -68,14 +71,15 @@ public class GUI extends JFrame {
         //listerner for the start button
 
         startButton.addActionListener(e -> {
-
             if (!sourcePathTextField.getText().trim().equals("") &
                     !outputPathTextField.getText().trim().equals("")) {
                 System.out.println("STARTING SYSTEM");
                 String sourcePath = sourcePathTextField.getText();
                 String destinationPath = outputPathTextField.getText();
                 start(sourcePath,destinationPath);
+                System.out.println("SYSTEM ENDED");
             }
+
         });
     }
 
