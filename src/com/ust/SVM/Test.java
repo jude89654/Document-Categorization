@@ -18,6 +18,8 @@ public class Test {
     static String pathOfFirstLevelClassName = Main.PROJECT_FOLDER_PATH
             +File.separator+Main.DEV_LABEL_FILE_NAME;
 
+
+
     /**
      * A String of the path to the testData
      */
@@ -25,7 +27,7 @@ public class Test {
             +File.separator+Main.DEV_FOLDER_NAME;
 
     static String pathOfSecondLevelTestData = Main.TEMPORARY_FOLDER_PATH
-            +File.separator+Main.DEV_FOLDER_NAME+2;
+            +File.separator+Main.SECOND_DEV_FOLDER_NAME;
 
     /**
      * A method used to start the classification of the System

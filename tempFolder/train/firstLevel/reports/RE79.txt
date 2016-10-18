@@ -1,0 +1,41 @@
+Ma, r.
+A; ‘2 UNIVERSITY OF SANTO TOMAS
+g 3 Institute of Information and Computing Sciences t
+x. ,A' Department of Computer Science
+INTERNSHIP WEEKLY ACTIVITY REPORT
+lntern’s Name: Infantado, Matt Raphael J. This week “From Date”: 07/25/2016
+Company: Accenture Inc. 7 This week “To Date”: 07/29/2016
+Department Deployed PCS Automation ___ Hours worked this week 39
+Supervisor’s Name: Mr.._Andrew Araullo Total hours completed All out of 250
+Task
+DATE / TIME Descri tion Hours Status /
+p Spent % completed
+Date: 07 /25/2016 I 1. Debug previous tool developed 4 100%
+Time In: 8200 am 1 2. Prepare for tool presentation 2 100%
+Time 0”“ 5300 pm 3. Discuss the storyboard for a website 2 100%
+Hours Worked: 8 hrs ”4_ I 1
+Date: 07 /26/2016 1. Start programming the interface of the website § 7 I 15%
+Time In: 8:00 am 2, Meeting i 1 ‘ 100%
+Time Out: 5:00 pm 3_ '7‘ _T_T
+Hours Worked: 8 hrs ————i 4. —-’T i
+Date: 07 /27/2016 1. Continue programming the interface of the i 6 i 35%
+Time In: 8:00 am _wgbsite 1
+Time Out: 5:00 pm 2. Designing the headers and footers to be used in I 2 100%
+Hours Worked: 8 hrs Ltﬁhe website i
+3. i
+h. V , A I
+Date: 07 /28/2016 ‘ 1. Continue programming the interface of the ‘ 7 . 50%
+Time In: 8:00 am website ‘_ _ ‘
+Time Out: 5:00 pm 2. Creating background for the website 1 100%
+Hours Worked: 8 hrs 3_ g —
+TE. —
+Date: 07 /29/2016 1. Continue programming the interface of the 75%
+Time In: 11:00 am website
+Time Out: 7:00 pm 2. Creating design for the icons that will be used in 1 100%
+Hours Worked: 7 hrs the site __ .
+3. Modified the program of an assigned tool/ project 100%
+Prepared by: Conforme:
+Intern’s Signature Supervisorg’ ESignature
+Date: 08/ 01 / 2016 Date: 01 / 2016
+usronzz-mrms
+

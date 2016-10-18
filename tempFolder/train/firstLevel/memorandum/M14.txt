@@ -1,0 +1,40 @@
+LEGAL MEMORANDUM 01-254
+
+TO: ALL JUSTICES OF THE PEACE
+
+FROM: PATRICIA W. GRIFFIN CHIEF MAGISTRATE
+
+DATE: FEBRUARY 15, 2001
+
+RE: STALKER LIDAR
+
+Attached is the decision in State v. Jarwan' in which the Superior Court applied the ﬁve prong test
+for the admission of novel scientiﬁc evidence to ﬁnd that speed readings from a Stalker Lidar unit
+are admissible with proper foundation testimony from a trained Operator. Although the Court had
+previously ruled on devices using laser principles, this was the ﬁrst case to address the admissibility
+of the Stalker Lidar device. (The Stalker radar discussed in Legal Memorandum 97-223 (April 16,
+1997) is not a laser device.)
+
+The Stalker Lidar device is a laser speed detection device and operates using two processes. The ﬁrst
+process is lidar, which uses laser pulses to measure distance by beaming a series of laser pulses at a
+target. The second process is an algorithm known as the "Least-Squares Curve Fit” which calculates
+the speed of the target using the information gathered by the lidar process.
+
+The Superior Court found that testimony regarding the results of the Stalker Lidar device are admis-
+sible provided a trained and certiﬁed operator establishes the proper minimum foundation for admis-
+sibility. This minimum foundation is:
+
+" Del. Super, 2000 WL331 13846, Ridgely, P.J. (Dec. 8, 2000).
+
+In determining whether new or novel scientiﬁc evidence may be admitted, the Court considers
+whether: 1)
+
+the expert witness is qualiﬁed; 2) the evidence is admissible, relevant and reliable; 3) bases for
+expert
+
+opinion are those reasonably relied upon by experts in the ﬁeld; 4) the specialized knowledge will
+assist the
+
+judge: and 5) evidence will create unfair prejudice, confuse the issue or mislead the jury. J arwan,
+2000 WL 33113846, WL 0p.at 3.
+

@@ -1,0 +1,43 @@
+, 7;; \) UNIVERSITY OF SANTO TOMAS
+_, “r2 Institute of Information and Computing Sciences
+V r Department of Computer Science
+INTERNSHIP WEEKLY ACTIVITY REPORT
+Intern's Name: John Angelo D. Mabasa This week “From Date": 07/18/16
+Company: Security Bank Corporation This week “To Date”: 07/ 22/ 16
+41 hours & 35
+Department Deployed TPMO Hours worked this week mins
+191 hours &14
+Supervisor’s Name: Ms. Karol Dodds Total hours completed mins out of 250
+DATE / TIME Status /
+Description %
+comleted
+Date: 07/ 18/16 1. Created download button 5hrs & 20 mins
+Time In: 8:10 -
+Time Out: 5:30 2. Created upload button 2hrs E: 50mins
+~ Hours Worked: 8 3. Project Presentation 1hr 100%
+hours & 20 mins
+Date: 07/19/16 1: Created delete button with checkbox 7hrs & 35mins
+Time In: 8:00 . .
+Time Out; 535
+Hours Worked: 8hrs
+& 35 mins
+Date: 07/ 20/ 16 I. Continued the delete button with 2hrs 100%
+Time In: 8:15 checkbox
+Time Out: 5:30 2. Created a search function 100%
+H W k d: 8
+£3: & 3; fnins 3. Continued upload button 2hrs & 15mins
+Date: 07/21/16 1. Continued upload button
+Time In: 8:15 2 Modified user interface 2hrs & 15mins 60%
+Time Out: 5:30 ——-
+Hours Worked: 8 3. Modified the database structure 4hrs 50%
+hours & 15 mins
+Date: 07/22/ 16 14 Modified the database structure
+Egg afggo 2. Modified the viewing of reports in the 4hrs E: 10mins 80%
+Hours Worked' 8 ro'ect monitorin- tool.
+hours & 10 mins —_-
+——_-n
+I P s y I s s ’ V” ‘
+g 11‘ P 3 My.
+'IUV
+'” UST2A022—01»F015
+

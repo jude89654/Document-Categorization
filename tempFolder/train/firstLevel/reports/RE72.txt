@@ -1,0 +1,46 @@
+gm" UNIVERSITY OF SANTO TOMAS “to;
+g ; Institute of Information and Computing Sciences (3 .
+5",» a}; Department of Computer Science “ '
+INTERNSHIP WEEKLY ACTIVITY REPORT
+Intern’s Name: BrionesﬁAnn:_G~ayleMNic_ole~_ This week “From Date": 7/4/2016
+Company: ~fxgggntie_~ﬁr*__ This week “To Date”: AWML
+Department Deployed ITW Support Team Hours worked this week 32
+Supervisor’s Name: _Benedict 6. Chan Total hours completed _80_ out of 250
+Task
+Status /
+DATE / TIME D , , Hours %
+escription Spent complete
+d
+Date: 7/4/2016 1. Continuation of demos of SAPUI5 100%
+Time In: 8:00 2. Studied the basics of SAPUI5 2 hrs and 40%
+Time Out: 5:00 30
+Hours Worked: 8 3. Basic Exercises for SAPUI5
+30
+4. Doing some practice codes for SAPUI5 (general)
+Date: 7/5/2016 1. Basic Exercises for SAPUI5
+Time In: 8:00 30
+Time Out: 5:00 2. Studied the basics of SAPUI5: Unicode Handling 45%
+Hours Worked: 8 and .properties
+3. Doing some practice codes for SAPUI5 (general) 20%
+30 mins
+——-
+Date: 7/6/2016 1. HOLIDAY —_
+Time |n= —__
+Time Out: 3_ -
+Hammered: _ -
+Date: 7/7/2016 1. Downloaded Json Editor _m
+Time In: 8:15 2. Studied the basics of SAPUI5: Dialog Box and 2 hrs 100%
+Time Out: 5:15 Fragments (with this
+Hours Worked: 8 topic only)
+3. Studied the basics of SAPUI5: Json/ Aggregation 2 hrs 100%
+Binding (with this
+topic only)
+‘ 4. Studied the basics of SAPUI5: Icons 2hrs 100%
+i (with this
+topic on! )
+5. Basic Exercises for SAPUI5 100%
+Date: 7/8/2016 1. Setting up of SAP Cloud 100%
+Time In: 8:00 2. Exploring the functions of this online IDE m 100%
+Time Out: 5:00 3. Doing some practice codes for SAPUIS (different m 50%
+®g USTZAOZZ‘OLFOIS '
+

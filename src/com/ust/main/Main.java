@@ -87,6 +87,8 @@ public class Main {
                 //kasi gusto ko
                 FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
                 FileUtils.cleanDirectory(new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
+                FileUtils.cleanDirectory(new File(TEMPORARY_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
+
                 FileUtils.cleanDirectory(new File("tempPicFolder"));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -123,7 +125,7 @@ public class Main {
             moveLetterFiles(originalFiles, results);
 
              //tanggalin ang comment para delete agad ang temp files temp files
-           /* try {
+            /*try {
 
                  FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
                 FileUtils.cleanDirectory(new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
