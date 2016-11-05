@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.ust.form.GUI">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.ust.GUI2.GUITrain">
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -48,7 +48,7 @@
           </component>
         </children>
       </scrollpane>
-      <grid id="ea5c" layout-manager="GridLayoutManager" row-count="3" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="ea5c" layout-manager="GridLayoutManager" row-count="2" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -70,17 +70,6 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="fae25" class="javax.swing.JTextField" binding="outputPathTextField">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-264749"/>
-              <editable value="false"/>
-            </properties>
-          </component>
           <component id="16650" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -89,42 +78,14 @@
               <text value="SOURCE FOLDER:"/>
             </properties>
           </component>
-          <component id="72c43" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="OUTPUT FOLDER:"/>
-            </properties>
-          </component>
           <component id="d354c" class="javax.swing.JButton" binding="RESETButton" default-binding="true">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-13683913"/>
               <foreground color="-2039584"/>
               <text value="RESET"/>
-            </properties>
-          </component>
-          <component id="8bbbe" class="javax.swing.JCheckBox" binding="testCheckBox" default-binding="true">
-            <constraints>
-              <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-19200"/>
-              <foreground color="-15855598"/>
-              <text value="Test"/>
-            </properties>
-          </component>
-          <component id="868d5" class="javax.swing.JButton" binding="outputBrowseButton" default-binding="true">
-            <constraints>
-              <grid row="1" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-13683913"/>
-              <foreground color="-2039584"/>
-              <text value="BROWSE"/>
             </properties>
           </component>
           <component id="b0cb" class="javax.swing.JButton" binding="sourceBrowseButton">
@@ -135,16 +96,6 @@
               <background color="-13683913"/>
               <foreground color="-2039584"/>
               <text value="BROWSE"/>
-            </properties>
-          </component>
-          <component id="86a69" class="javax.swing.JCheckBox" binding="trainCheckBox" default-binding="true">
-            <constraints>
-              <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-19200"/>
-              <foreground color="-15855598"/>
-              <text value="Train"/>
             </properties>
           </component>
         </children>

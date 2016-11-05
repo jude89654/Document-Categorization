@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays ;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -145,9 +146,16 @@ public class FirstLevelClassifier {
     private void readTestFiles(String testing_folder) throws NumberFormatException, IOException {
         System.out.println("Started reading StartFirstLevelTesting files");
         Stemmer stemmer = new Stemmer();
+
+        ArrayList<String> testUniqueWords = new ArrayList<>();
+
         for (Map.Entry<String, Integer> entry : testClassNameMap.entrySet()) {
             String testFileName = entry.getKey();
-            //System.out.println("FILE:"+testFileName);
+
+            System.out.println("FILE:"+testFileName);
+            System.out.println("TOKENS");
+
+
             File file = new File(testing_folder, testFileName);
             Scanner in = new Scanner(file);
             TrainData trainData = new TrainData(file.getName(), entry.getValue());
@@ -155,9 +163,20 @@ public class FirstLevelClassifier {
             while (in.hasNextLine()) {
                 String[] tokens = in.nextLine().replaceAll("[']", "").replaceAll("[^a-zA-Z]", " ").split("\\s+");
 
+                System.out.println(Arrays.toString(tokens));
+
                 for (int i = 0; i < tokens.length; i++) {
                     String token = tokens[i].toLowerCase();
                     token = stemmer.stem(token);
+
+                    if(!token.isEmpty()&&stopwords.contains(token))
+                    {
+                        if(!testUniqueWords.contains(token))
+                        {
+                            testUniqueWords.add(token);
+                        }
+                    }
+
                     if (!token.isEmpty() && !stopwords.contains(token)) {
                         int index = getIndex(token);
 
@@ -169,6 +188,8 @@ public class FirstLevelClassifier {
                     }
                 }
             }
+            System.out.println("UNIQUE WORDS:");
+            System.out.println(testUniqueWords);
             testDataList.add(trainData);
             in.close();
         }
@@ -179,6 +200,7 @@ public class FirstLevelClassifier {
     private void readTrainFiles(String training_folder) throws NumberFormatException, IOException {
         System.out.println("Started reading class folder");
         Stemmer stemmer = new Stemmer();
+
         for (Map.Entry<Integer, String> entry : classNameMap.entrySet()) {
             String classFolderName = entry.getValue();
             File classFolder = new File(training_folder, classFolderName);
@@ -214,17 +236,22 @@ public class FirstLevelClassifier {
 
     private void writeTrainFile() throws IOException {
         File file = new File(OUTPUT_TRAIN_FILE);
-        file.createNewFile();
+        if(!file.exists()) {
+            file.createNewFile();
+        }
 
-        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
         BufferedWriter bw = new BufferedWriter(fw);
 
+        HashSet<TrainData> trainDataHashSet = new HashSet<>(trainDataList);
 
-        for (TrainData trainData : trainDataList) {
+
+        for (TrainData trainData : trainDataHashSet) {
             bw.write(trainData.classLabel + "");
 
-            for (Map.Entry<Integer, Double> entry : trainData.nodeValueMap.entrySet())
+            for (Map.Entry<Integer, Double> entry : trainData.nodeValueMap.entrySet()) {
                 bw.write(" " + entry.getKey() + ":" + entry.getValue());
+            }
 
             bw.write("\n");
         }

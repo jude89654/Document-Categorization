@@ -1,17 +1,20 @@
-package com.ust.GUI2;
+package com.ust.form;
 
 import com.ust.logs.JTextAreaOutputStream;
 import com.ust.main.Main;
 
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.PrintStream;
 
 /**
  * Created by pc1 on 21/09/2016.
  */
-public class GUI extends JFrame {
+public class GUITest extends JFrame {
     private JLabel logoPanel;
     private JTextArea logsTextArea;
     private JTextField sourcePathTextField;
@@ -27,15 +30,17 @@ public class GUI extends JFrame {
     private String welcomeText = "THANK YOU FOR USING THE SYSTEM";
 
     /**
-     * CONSTRUCTOR THAT INITIALIZES THE GUI AND MAKES IT VISIBLE
+     * CONSTRUCTOR THAT INITIALIZES THE GUITrain AND MAKES IT VISIBLE
      */
-    public GUI() {
+    public GUITest() {
         super("DOCUMENT GENRE DETECTOR AND SUBCATEGORIZER");
 
         setContentPane(mainPanel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         pack();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
        // setVisible(true);
 
         DefaultCaret caret = (DefaultCaret)logsTextArea.getCaret();
@@ -45,13 +50,22 @@ public class GUI extends JFrame {
 
 
         logsTextArea.setText(welcomeText);
+        setVisible(true);
 
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+
+                HOME home = new HOME();
+            }
+        });
         //actions for the browse button
         sourceBrowseButton.addActionListener(e -> {
             String path = getFolderPath();
             System.out.println("SOURCE:"+path);
             sourcePathTextField.setText(path);
-            File projectFolder = new File(path);
+           // File projectFolder = new File(path);
         });
 
         // action if the browse button is clicked
@@ -82,12 +96,12 @@ public class GUI extends JFrame {
     }
 
     public static void main(String args[]) {
-        GUI gui = new GUI();
-        //show the GUI
-        gui.setVisible(true);
+        GUITest guiTest = new GUITest();
+        //show the GUITrain
+
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                System.out.println(info.getName());
+               // System.out.println(info.getName());
                 if ("Metal".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -122,11 +136,12 @@ public class GUI extends JFrame {
             public void run(){
                 startButton.setEnabled(false);
                 //TODO
-                Main.start(projectPath,destinationPath,trainCheckBox.isSelected(),testCheckBox.isSelected(),true,true);
+                Main.test(projectPath,destinationPath);
                 startButton.setEnabled(true);
             }
         };
         thread.start();
     }
+
 }
 

@@ -51,6 +51,81 @@ public class Main {
     public static Map<Integer, String> SECOND_LEVEL_FOLDER_NAMES = new HashMap<>();
 
 
+    /**
+     * MAIN METHOD FOR CATEGORIZING THE DOCUMENTS
+     * @param projectFolderPath the project folder selected for testing
+     * @param outputFolderPath the directory where will the final
+     */
+    public static void test(String projectFolderPath, String outputFolderPath) {
+
+        PROJECT_FOLDER_PATH = projectFolderPath;
+        CATEGORIZED_FILES_PATH = outputFolderPath + File.separator + CATEGORIZED_FILES_PATH;
+        initializeFolders();
+        try {
+            //clean the directory
+            FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
+
+            //clean the text files.
+            FileUtils.cleanDirectory(new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME));
+            FileUtils.cleanDirectory(new File(TEMPORARY_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
+
+            FileUtils.cleanDirectory(new File("tempPicFolder"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        createFirstLevelTestOCRFiles();
+        getFirstLevelTrainingFolderNames();
+        getSecondLevelTrainingFolderNames();
+
+        try {
+            Test.StartFirstLevelTesting();
+        } catch (IOException | InvalidInputDataException e) {
+            e.printStackTrace();
+        }
+        File[] originalFiles = new File(PROJECT_FOLDER_PATH + File.separator + DEV_FOLDER_NAME).listFiles(new PictureFileFilter());
+
+        ArrayList<Integer> results = getResults(new File(FirstLevelClassifier.OUTPUT_RESULT_FILE));
+
+        moveCategorizedFiles(originalFiles, results);
+
+
+        // createSecondLevelTestOCRFiles();
+
+        try {
+            Test.StartSecondLevelTesting();
+        } catch (IOException | InvalidInputDataException e) {
+            e.printStackTrace();
+        }
+
+        results = getResults(new File(SecondLevelClassifier.OUTPUT_RESULT_FILE));
+
+        originalFiles = new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME).listFiles(new PictureFileFilter());
+
+        moveLetterFiles(originalFiles, results);
+
+    }
+
+    public static void train(String projectFolderPath) {
+        PROJECT_FOLDER_PATH = projectFolderPath;
+        try {
+            Train.firstLevelTraining();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidInputDataException e) {
+            e.printStackTrace();
+        }
+        try {
+            Train.secondLevelTraining();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidInputDataException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
     public static void start(String sourceFolderPath, String outputFolderPath, boolean train, boolean test, boolean OCRTest, boolean OCRTrain) {
         PROJECT_FOLDER_PATH = sourceFolderPath;
         CATEGORIZED_FILES_PATH = outputFolderPath + File.separator + CATEGORIZED_FILES_PATH;
@@ -124,7 +199,7 @@ public class Main {
 
             moveLetterFiles(originalFiles, results);
 
-             //tanggalin ang comment para delete agad ang temp files temp files
+            //tanggalin ang comment para delete agad ang temp files temp files
             /*try {
 
                  FileUtils.cleanDirectory(new File(PROJECT_FOLDER_PATH + File.separator + SECOND_DEV_FOLDER_NAME));
@@ -151,9 +226,9 @@ public class Main {
                 .listFiles(new PictureFileFilter())).parallel()
                 .forEach(file -> {
                     int x = counter.incrementAndGet();
-                    System.out.println("CREATING OCR FOR FILE "+x+" OF " + folderForTesting.listFiles().length);
+                    System.out.println("CREATING OCR FOR FILE " + x + " OF " + folderForTesting.listFiles().length);
                     OCR.createTextFile(file, DEV_FOLDER_NAME);
-                    System.out.println("OCR FINISHED FOR FILE "+x+" OF "+folderForTesting.listFiles().length);
+                    System.out.println("OCR FINISHED FOR FILE " + x + " OF " + folderForTesting.listFiles().length);
                 });
     }
 
@@ -242,8 +317,8 @@ public class Main {
                 System.out.println("MOVING FILE: " + categorizedFile[index].getName() + " ---> " + SECOND_LEVEL_FOLDER_NAMES.get(results.get(index)));
                 //eto yata kung bakit hindi gumagana kanina
                 new File(CATEGORIZED_FILES_PATH
-                                + File.separator + "letters"
-                                + File.separator + SECOND_LEVEL_FOLDER_NAMES.get(results.get(index))).mkdirs();
+                        + File.separator + "letters"
+                        + File.separator + SECOND_LEVEL_FOLDER_NAMES.get(results.get(index))).mkdirs();
                 FileUtils.copyFile(categorizedFile[index],
                         new File(CATEGORIZED_FILES_PATH
                                 + File.separator + "letters"
@@ -336,6 +411,7 @@ public class Main {
         File mainFolder = new File(CATEGORIZED_FILES_PATH);
         mainFolder.mkdir();
 
+        new File(PROJECT_FOLDER_PATH+File.separator+SECOND_DEV_FOLDER_NAME).mkdirs();
         new File("tempPicFolder").mkdirs();
         new File("SVM1stLevelFiles").mkdirs();
         new File("SVM2ndLevelFiles").mkdirs();
@@ -420,10 +496,6 @@ public class Main {
 
     }
 
-
-    public static void create2ndLevelOCR() {
-
-    }
 
 }
 

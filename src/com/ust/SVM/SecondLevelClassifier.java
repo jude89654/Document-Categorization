@@ -206,9 +206,11 @@ public class SecondLevelClassifier {
 
     private void writeTrainFile() throws IOException {
         File file = new File(OUTPUT_TRAIN_FILE);
-        file.createNewFile();
+        if(!file.exists()) {
+            file.createNewFile();
+        }
 
-        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
         BufferedWriter bw = new BufferedWriter(fw);
 
 

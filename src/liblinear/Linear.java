@@ -456,11 +456,11 @@ public class Linear {
         } else {
             int dec_max_idx = 0;
 
-            //System.out.println("ARRAY: "+Arrays.toString(model.label));
+            System.out.println("ARRAY: "+Arrays.toString(model.label));
 
 
 
-            //System.out.println("SCORES:" + Arrays.toString(dec_values));
+            System.out.println("SCORES:" + Arrays.toString(dec_values));
 
             //CHECK THE SCORES OF EACH CATEGORY
             for (int i = 1; i < model.nr_class; i++) {

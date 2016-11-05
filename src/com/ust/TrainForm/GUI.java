@@ -1,4 +1,4 @@
-package com.ust.form;
+package com.ust.TrainForm;
 
 import com.ust.logs.JTextAreaOutputStream;
 import com.ust.main.Main;
@@ -7,8 +7,6 @@ import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 import java.io.File;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by pc1 on 21/09/2016.
@@ -29,12 +27,12 @@ public class GUI extends JFrame {
     private String welcomeText = "THANK YOU FOR USING THE SYSTEM";
 
     /**
-     * CONSTRUCTOR THAT INITIALIZES THE GUI AND MAKES IT VISIBLE
+     * CONSTRUCTOR THAT INITIALIZES THE GUITrain AND MAKES IT VISIBLE
      */
     public GUI() {
         super("DOCUMENT GENRE DETECTOR AND SUBCATEGORIZER");
 
-        setContentPane(mainPanel);
+       setContentPane(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
@@ -85,7 +83,7 @@ public class GUI extends JFrame {
 
     public static void main(String args[]) {
         GUI gui = new GUI();
-        //show the GUI
+        //show the GUITrain
         gui.setVisible(true);
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
