@@ -40,7 +40,7 @@ public class GUITest extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
        // setVisible(true);
 
         DefaultCaret caret = (DefaultCaret)logsTextArea.getCaret();

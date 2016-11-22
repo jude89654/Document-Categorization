@@ -108,6 +108,9 @@ public class Main {
 
     public static void train(String projectFolderPath) {
         PROJECT_FOLDER_PATH = projectFolderPath;
+
+        createFirstLevelTrainingOCRFiles();
+        createSecondLevelTrainingOCRFiles();
         try {
             Train.firstLevelTraining();
         } catch (IOException e) {

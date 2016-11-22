@@ -106,8 +106,11 @@ public class Predict {
                 assert prob_estimates != null;
                 predict_label = Linear.predictProbability(model, nodes, prob_estimates);
                 Linear.printf(out, "%g", predict_label);
-                for (int j = 0; j < model.nr_class; j++)
+
+                for (int j = 0; j < model.nr_class; j++) {
+                    //System.out.print
                     Linear.printf(out, " %g", prob_estimates[j]);
+                }
                 Linear.printf(out, "\n");
             } else {
                 predict_label = Linear.predict(model, nodes);

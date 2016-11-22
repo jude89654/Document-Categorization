@@ -420,31 +420,37 @@ public class Linear {
         return label;
     }
 
-    public static double predictValues(Model model, Feature[] x, double[] dec_values) {
-        int n;
+    public static double predictValues(Model model, Feature[] features, double[] dec_values) {
+        int numberOfFeatures;
         if (model.bias >= 0)
-            n = model.nr_feature + 1;
+            numberOfFeatures = model.nr_feature + 1;
         else
-            n = model.nr_feature;
+            numberOfFeatures = model.nr_feature;
 
-        double[] w = model.w;
+        double[] weights = model.w;
 
-        int nr_w;
+        int numberOfClasses;
+
         if (model.nr_class == 2 && model.solverType != SolverType.MCSVM_CS)
-            nr_w = 1;
+            numberOfClasses = 1;
         else
-            nr_w = model.nr_class;
+            numberOfClasses = model.nr_class;
 
-        for (int i = 0; i < nr_w; i++)
+        for (int i = 0; i < numberOfClasses; i++)
             dec_values[i] = 0;
 
-        for (Feature lx : x) {
-            int idx = lx.getIndex();
+        for (Feature currentFeature : features) {
+            int featureIndex = currentFeature.getIndex();
+
             // the dimension of testing data may exceed that of training
-            if (idx <= n) {
-                for (int i = 0; i < nr_w; i++) {
-                    dec_values[i] += w[(idx - 1) * nr_w + i] * lx.getValue();
+            if (featureIndex <= numberOfFeatures) {
+
+                for (int index = 0; index < numberOfClasses; index++) {
+
+                                         //feature weight array                               //multiply sa value ng current feature kanina
+                    dec_values[index] += weights[(featureIndex - 1) * numberOfClasses + index] * currentFeature.getValue();
                 }
+
             }
         }
 
