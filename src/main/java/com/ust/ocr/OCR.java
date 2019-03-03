@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
+
 
 /**
  * Created by jude8 on 8/28/2016.
@@ -32,10 +32,19 @@ public class OCR {
 
     public static void main(String args[]){
         new File(tempPictureFolderName).mkdir();
-        Arrays.stream(new File(Main.PROJECT_FOLDER_PATH+File.separator+Main.DEV_FOLDER_NAME)
-                .listFiles(new PictureFileFilter()))
-                .parallel()
-                .forEach(file->OCR.createTextFile(file,Main.DEV_FOLDER_NAME));
+        for(File file: new File(Main.PROJECT_FOLDER_PATH+File.separator+Main.DEV_FOLDER_NAME).listFiles(new PictureFileFilter())){
+            OCR.createTextFile(file,Main.DEV_FOLDER_NAME);
+        }
+
+//        Arrays.stream(new File(Main.PROJECT_FOLDER_PATH+File.separator+Main.DEV_FOLDER_NAME)
+//                .listFiles(new PictureFileFilter()))
+//                .parallel()
+//                .forEach(new Consumer<File>() {
+//                    @Override
+//                    public void accept(File file) {
+//                        OCR.createTextFile(file, Main.DEV_FOLDER_NAME);
+//                    }
+//                });
 
 
         System.out.println("FINISHED NA");
@@ -76,7 +85,7 @@ public class OCR {
     public  String getOCRText(File file){
 
         Tesseract1 instance = new Tesseract1();
-        instance.setLanguage("eng");
+        instance.setDatapath("C:\\Users\\user\\IdeaProjects\\Document-Categorization\\tessdata");
         try {
             System.out.println("READING IMAGE: "+file.getPath());
             File convertedImage = convertImage(file);

@@ -5,9 +5,7 @@ import com.ust.main.Main;
 
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 import java.io.File;
 import java.io.PrintStream;
 
@@ -61,37 +59,49 @@ public class GUITest extends JFrame {
             }
         });
         //actions for the browse button
-        sourceBrowseButton.addActionListener(e -> {
-            String path = getFolderPath();
-            System.out.println("SOURCE:"+path);
-            sourcePathTextField.setText(path);
-           // File projectFolder = new File(path);
+        sourceBrowseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String path = GUITest.this.getFolderPath();
+                System.out.println("SOURCE:" + path);
+                sourcePathTextField.setText(path);
+                // File projectFolder = new File(path);
+            }
         });
 
         // action if the browse button is clicked
-        outputBrowseButton.addActionListener(e -> {
-            String path = getFolderPath();
-            outputPathTextField.setText(path);
+        outputBrowseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String path = GUITest.this.getFolderPath();
+                outputPathTextField.setText(path);
+            }
         });
 
-        RESETButton.addActionListener(e -> {
-            logsTextArea.setText("");
-            logsTextArea.setText(welcomeText);
+        RESETButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logsTextArea.setText("");
+                logsTextArea.setText(welcomeText);
+            }
         });
 
 
         //listerner for the start button
 
-        startButton.addActionListener(e -> {
-            if (!sourcePathTextField.getText().trim().equals("") &
-                    !outputPathTextField.getText().trim().equals("")) {
-                System.out.println("STARTING SYSTEM");
-                String sourcePath = sourcePathTextField.getText();
-                String destinationPath = outputPathTextField.getText();
-                start(sourcePath,destinationPath);
-                System.out.println("SYSTEM ENDED");
-            }
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!sourcePathTextField.getText().trim().equals("") &
+                        !outputPathTextField.getText().trim().equals("")) {
+                    System.out.println("STARTING SYSTEM");
+                    String sourcePath = sourcePathTextField.getText();
+                    String destinationPath = outputPathTextField.getText();
+                    GUITest.this.start(sourcePath, destinationPath);
+                    System.out.println("SYSTEM ENDED");
+                }
 
+            }
         });
     }
 
@@ -131,7 +141,7 @@ public class GUITest extends JFrame {
         }
     }
 
-    public void start(String projectPath, String destinationPath){
+    public void start(final String projectPath, final String destinationPath){
         Thread thread = new Thread(){
             public void run(){
                 startButton.setEnabled(false);

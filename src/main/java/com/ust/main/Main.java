@@ -2,10 +2,11 @@ package com.ust.main;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
 
 
 import com.ust.SVM.FirstLevelClassifier;
@@ -225,14 +226,13 @@ public class Main {
 
         AtomicInteger counter = new AtomicInteger(0);
         //method to create a thread for each OCR
-        Arrays.stream(folderForTesting
-                .listFiles(new PictureFileFilter())).parallel()
-                .forEach(file -> {
-                    int x = counter.incrementAndGet();
-                    System.out.println("CREATING OCR FOR FILE " + x + " OF " + folderForTesting.listFiles().length);
-                    OCR.createTextFile(file, DEV_FOLDER_NAME);
-                    System.out.println("OCR FINISHED FOR FILE " + x + " OF " + folderForTesting.listFiles().length);
-                });
+
+        for(File file: folderForTesting.listFiles(new PictureFileFilter())) {
+            int x = counter.incrementAndGet();
+            System.out.println("CREATING OCR FOR FILE " + x + " OF " + folderForTesting.listFiles().length);
+            OCR.createTextFile(file, DEV_FOLDER_NAME);
+            System.out.println("OCR FINISHED FOR FILE " + x + " OF " + folderForTesting.listFiles().length);
+        }
     }
 
 
@@ -250,17 +250,20 @@ public class Main {
         //our counter
         AtomicInteger atomicInteger = new AtomicInteger(0);
         //System.out/.println
-        for (File folder : firstLevelTrainingFolder.listFiles(File::isDirectory)) {
+        for (File folder : firstLevelTrainingFolder.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isDirectory();
+            }
+        })) {
             System.out.println(folder.getPath());
-            Arrays.stream(folder
-                    .listFiles(new PictureFileFilter())).parallel()
-                    .forEach(file -> {
-                        final int x = atomicInteger.incrementAndGet();
-                        System.out.println("PROCESSING IMAGE: " + x + " OF " + folder.listFiles().length);
-                        OCR.createTextFile(file, TRAINING_FOLDER_NAME + File.separator + firstLevelTrainingFolder.getName() + File.separator + folder.getName());
-                        System.out.println("OCR IMAGE: " + x + " OF " + folder.listFiles().length + " FINISHED");
-                    });
 
+            for(File file : folder.listFiles(new PictureFileFilter())) {
+                final int x = atomicInteger.incrementAndGet();
+                System.out.println("PROCESSING IMAGE: " + x + " OF " + folder.listFiles().length);
+                OCR.createTextFile(file, TRAINING_FOLDER_NAME + File.separator + firstLevelTrainingFolder.getName() + File.separator + folder.getName());
+                System.out.println("OCR IMAGE: " + x + " OF " + folder.listFiles().length + " FINISHED");
+            }
         }
         System.out.println("FIRST LEVEL OCR FINISHED");
 
@@ -277,16 +280,22 @@ public class Main {
 
         AtomicInteger atomicInteger = new AtomicInteger(0);
         for (File folder :
-                secondLevelTrainingFolder.listFiles(File::isDirectory)) {
-            Arrays.stream(folder
-                    .listFiles(new PictureFileFilter())).parallel()
-
-                    .forEach(file -> {
-                        final int x = atomicInteger.incrementAndGet();
+                secondLevelTrainingFolder.listFiles(new PictureFileFilter())) {
+            for( File file : folder.listFiles(new PictureFileFilter())){
+                final int x = atomicInteger.incrementAndGet();
                         System.out.println("PROCESSING IMAGE: " + x + " OF " + folder.listFiles().length);
                         OCR.createTextFile(file, TRAINING_FOLDER_NAME + File.separator + secondLevelTrainingFolder.getName() + File.separator + folder.getName());
                         System.out.println("OCR IMAGE: " + x + " OF " + folder.listFiles().length + " FINISHED");
-                    });
+            }
+
+//            Arrays.stream(folder
+//                    .listFiles(new PictureFileFilter()))
+//                    .forEach(file -> {
+//                        final int x = atomicInteger.incrementAndGet();
+//                        System.out.println("PROCESSING IMAGE: " + x + " OF " + folder.listFiles().length);
+//                        OCR.createTextFile(file, TRAINING_FOLDER_NAME + File.separator + secondLevelTrainingFolder.getName() + File.separator + folder.getName());
+//                        System.out.println("OCR IMAGE: " + x + " OF " + folder.listFiles().length + " FINISHED");
+//                    });
 
         }
         System.out.println("SECOND LEVEL OCR FINISHED");
@@ -344,7 +353,12 @@ public class Main {
     public static void moveCategorizedFiles(File[] categorizedFile, ArrayList<Integer> results) {
 
 
-        File[] OCRFILES = new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME).listFiles((dir) -> dir.getName().toLowerCase().endsWith(".txt"));
+        File[] OCRFILES = new File(TEMPORARY_FOLDER_PATH + File.separator + DEV_FOLDER_NAME).listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File dir) {
+                return dir.getName().toLowerCase().endsWith(".txt");
+            }
+        });
 
 
         for (int index = 0; index < results.size(); index++) {

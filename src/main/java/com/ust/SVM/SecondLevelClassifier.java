@@ -110,7 +110,12 @@ public class SecondLevelClassifier {
                 testClassNameMap.put(tokens[0], Integer.parseInt(tokens[1]));
         }*/
         for (File file:
-             new File(Main.TEMPORARY_FOLDER_PATH +File.separator+Main.SECOND_DEV_FOLDER_NAME).listFiles(e->e.getName().endsWith(".txt"))) {
+             new File(Main.TEMPORARY_FOLDER_PATH +File.separator+Main.SECOND_DEV_FOLDER_NAME).listFiles(new FileFilter() {
+                 @Override
+                 public boolean accept(File pathname) {
+                     return pathname.getName().endsWith(".txt");
+                 }
+             })) {
             testClassNameMap.put(file.getName().split(".txt")[0]+".txt",0);
 
         }

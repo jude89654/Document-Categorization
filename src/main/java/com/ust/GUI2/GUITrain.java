@@ -6,6 +6,8 @@ import com.ust.main.Main;
 
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -56,31 +58,40 @@ public class GUITrain extends JFrame {
         logsTextArea.setText(welcomeText);
 
         //actions for the browse button
-        sourceBrowseButton.addActionListener(e -> {
-            String path = getFolderPath();
-            System.out.println("SOURCE:"+path);
-            sourcePathTextField.setText(path);
-            File projectFolder = new File(path);
+        sourceBrowseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String path = GUITrain.this.getFolderPath();
+                System.out.println("SOURCE:" + path);
+                sourcePathTextField.setText(path);
+                File projectFolder = new File(path);
+            }
         });
 
 
-        RESETButton.addActionListener(e -> {
-            logsTextArea.setText("");
-            logsTextArea.setText(welcomeText);
+        RESETButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logsTextArea.setText("");
+                logsTextArea.setText(welcomeText);
+            }
         });
 
 
         //listerner for the start button
 
-        startButton.addActionListener(e -> {
-            if (!sourcePathTextField.getText().trim().equals("")) {
-                System.out.println("STARTING SYSTEM");
-                String sourcePath = sourcePathTextField.getText();
-               // String destinationPath = outputPathTextField.getText();
-                start(sourcePath);
-                System.out.println("SYSTEM ENDED");
-            }
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!sourcePathTextField.getText().trim().equals("")) {
+                    System.out.println("STARTING SYSTEM");
+                    String sourcePath = sourcePathTextField.getText();
+                    // String destinationPath = outputPathTextField.getText();
+                    GUITrain.this.start(sourcePath);
+                    System.out.println("SYSTEM ENDED");
+                }
 
+            }
         });
     }
 
@@ -120,7 +131,7 @@ public class GUITrain extends JFrame {
         }
     }
 
-    public void start(String projectPath){
+    public void start(final String projectPath){
         Thread thread = new Thread(){
             public void run(){
                 startButton.setEnabled(false);

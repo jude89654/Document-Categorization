@@ -2,12 +2,7 @@ package com.ust.SVM;
 
 import com.ust.main.Main;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays ;
 import java.util.HashSet;
@@ -119,7 +114,12 @@ public class FirstLevelClassifier {
                 testClassNameMap.put(tokens[0], Integer.parseInt(tokens[1]));
         }*/
         for (File file:
-             new File(Main.TEMPORARY_FOLDER_PATH +File.separator+Main.DEV_FOLDER_NAME).listFiles(e->e.getName().endsWith(".txt"))) {
+             new File(Main.TEMPORARY_FOLDER_PATH +File.separator+Main.DEV_FOLDER_NAME).listFiles(new FileFilter() {
+                 @Override
+                 public boolean accept(File pathname) {
+                     return pathname.toString().endsWith(".txt");
+                 }
+             })) {
             testClassNameMap.put(file.getName().split(".txt")[0]+".txt",0);
 
         }
