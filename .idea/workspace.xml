@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="92225ca7-32f7-4a0b-ac58-6c0e1a673e42" name="Default" comment="final commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/GUI2/GUITrain.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/GUI2/GUITrain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/SVM/FirstLevelClassifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/SVM/SecondLevelClassifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/SVM/Stemmer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/SVM/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/SVM/Train.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/TestForm/GUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/TestForm/GUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/TrainForm/GUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/TrainForm/GUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/form/GUITest.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/form/GUITest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/form/HOME.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/form/HOME.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/form/HeaderFront.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/logs/JTextAreaOutputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/ocr/OCR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/util/FileUtilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ust/util/PictureFileFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/ArraySorter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/DoubleArrayPointer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Feature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/FeatureNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Function.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/IntArrayPointer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/InvalidInputDataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/L2R_L2_SvcFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/L2R_L2_SvrFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/L2R_LrFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Linear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Parameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Predict.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Problem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/SolverMCSVM_CS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/SolverType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Train.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/liblinear/Tron.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Header2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/CategorizeForm/GUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/CategorizeForm/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/GUI2/GUITrain.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/GUI2/GUITrain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/SVM/FirstLevelClassifier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/SVM/SecondLevelClassifier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/SVM/Stemmer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/SVM/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/SVM/Train.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/TestForm/GUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/TestForm/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/TrainForm/GUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/TrainForm/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/form/GUITest.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/form/GUITest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/form/HOME.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/form/HOME.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/form/HeaderFront.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/logs/JTextAreaOutputStream.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/ocr/OCR.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/util/FileUtilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ust/util/PictureFileFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/ArraySorter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/DoubleArrayPointer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Feature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/FeatureNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Function.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/IntArrayPointer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/InvalidInputDataException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/L2R_L2_SvcFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/L2R_L2_SvrFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/L2R_LrFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Linear.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Parameter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Predict.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Problem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/SolverMCSVM_CS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/SolverType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Train.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/liblinear/Tron.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/A17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/A18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/A19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/A20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/C17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/C18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/C19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/C20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/M17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/M18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/M19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/M20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/R17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/R18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/R19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/R20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/RE17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/RE18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/RE19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev/RE20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/A17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/A18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/A19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/A20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/C17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/C18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/C19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/C20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/R17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/R18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/R19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempFolder/dev2/R20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/1.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/2.png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/3.png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/4.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/5.png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/6.JPG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/A17.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/A18.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/A19.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/A20.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/C17.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/C18.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/C19.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/C20.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/M17.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/M18.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/M19.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/M20.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/R17.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/R18.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/R19.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/R20.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/RE17.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/RE18.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/RE19.jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tempPicFolder/RE20.jpg.png" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+              <folding>
+                <element signature="e#3986#4268#0" expanded="true" />
+                <element signature="e#4267#4268#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Header2.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Header2.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="GUITrain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/GUI2/GUITrain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="120" column="5" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUI.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/SVM/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="76" column="45" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecondLevelClassifier.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/SVM/SecondLevelClassifier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FirstLevelClassifier.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/SVM/FirstLevelClassifier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4607">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tempFolder/train/firstLevel/letters/1.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/ust/GUI2/GUITrain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.form" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Document-Categorization" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Document-Categorization" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="47" />
+    <option name="y" value="229" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Document-Categorization" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Document-Categorization" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\IdeaProjects\Document-Categorization\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.GUI">
+    <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ust.TestForm.GUI" />
+      <module name="Document-Categorization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ust.TestForm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ust.CategorizeForm.GUI" />
+      <module name="Document-Categorization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ust.CategorizeForm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.GUI (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GUI" />
+        <item itemvalue="Application.GUI (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92225ca7-32f7-4a0b-ac58-6c0e1a673e42" name="Default" comment="" />
+      <created>1551545452355</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551545452355</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added maven support">
+      <created>1551593155973</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551593155973</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.32838285" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32838285" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.32838285" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.34039333" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32838285" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34158415" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32838285" />
+      <window_info anchor="right" id="Flutter Outline" order="3" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26172465" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Flutter Inspector" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="text">
+                    <value>
+                      <list>
+                        <option value="" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added maven support" />
+    <MESSAGE value="final commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="final commit" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#3986#4268#0" expanded="true" />
+            <element signature="e#4267#4268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_161/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3672">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+          <folding>
+            <element signature="e#6758#6759#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4910">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="method#test#0;class#Main#0" />
+            <element signature="method#train#0;class#Main#0" />
+            <element signature="method#start#0;class#Main#0" />
+            <element signature="docComment;method#createFirstLevelTestOCRFiles#0;class#Main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/TestForm/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/ocr/OCR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_161/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+          <folding>
+            <element signature="e#6758#6759#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/liblinear/ArraySorter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+          <folding>
+            <element signature="e#3986#4268#0" expanded="true" />
+            <element signature="e#4267#4268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/SVM/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="76" column="45" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/SVM/SecondLevelClassifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/dev/RE18.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/dev/5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/dev/2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/SVM/FirstLevelClassifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4607">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tempFolder/train/firstLevel/letters/1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tempFolder/train/firstLevel/letters/1 (2).jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tempFolder/train/firstLevel/letters/1 (3).jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tempFolder/train/firstLevel/letters/3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-213" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tempFolder/train/firstLevel/letters/R92.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Header2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/GUI2/GUITrain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="120" column="5" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ust/CategorizeForm/GUI.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Document-Categorization</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
